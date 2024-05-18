@@ -1,0 +1,157 @@
+\documentclass[10pt,a4paper,sans, oneside]{book}
+\usepackage[top=2cm, bottom=2cm]{geometry} % Reduce document margins
+
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\huge\bfseries}{\thechapter:}{1em}{}
+
+% Table of contents formatting
+\setcounter{tocdepth}{1}
+
+% Section formatting
+\renewcommand\thechapter{\Alph{chapter}}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome5}
+\usepackage{orcidlink}
+\usepackage{fontawesome5}
+\usepackage{academicons}
+
+% Foreground & background color management
+\usepackage{xcolor}
+
+% Insertable PDFs
+\usepackage{pdfpages}
+
+% Hyperlinks and urls
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={G. Stark - Academic Qualifications Portfolio},
+    pdfpagemode=FullScreen,
+}
+
+\usepackage{url}
+
+% Scientific SI units
+\usepackage{siunitx}
+\usepackage{hepnames}
+
+% Multi-column & multi-row tables
+\usepackage{multicol}
+\usepackage{multirow}
+
+% Formatting lists
+\usepackage{enumitem}
+
+% Fancy headers package
+\usepackage{fancyhdr}
+\usepackage[font={small}]{caption}
+\usepackage[hang,flushmargin]{footmisc}
+%\linespread{1.1}
+\linespread{1}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhf{}
+\fancyhead[C]{Giordon Stark: Academic qualifications portfolio for Faculty of Science, Lund University}
+%\fancyfoot[L]{Research activity}
+\fancyfoot[L]{G. Stark $\cdot$ Lunds Universitet $\cdot$ Senior Lecturer PA2024/647\\[-0.2em]{\fontsize{10}{0}\mdseries\upshape Pronouns: he/him/point}}
+\rfoot{\thepage}
+
+% https://tex.stackexchange.com/a/117334
+% use fancyhdr on chapter pages
+\usepackage{etoolbox}
+\patchcmd{\chapter}{\thispagestyle{plain}}{\thispagestyle{fancy}}{}{}
+
+% Create a custom command for formatting my project descriptions
+% Project name, time period, collaboration, location
+\newcommand{\ProjectSummary}[5]{\noindent\textbf{#1} \hfill #2 \\ \textit{#3} \hfill \textit{#4} \\ \textit{Collaborating institutions:} #5 }
+
+\newcommand{\Activity}[4]{\noindent\textbf{#1} \hfill #2 \\ \textit{#3} \hfill \textit{#4} }
+
+% Custom command for recommenders
+% Name, Institute, Email, Phone number
+%\newcommand{\Recommender}[4]{\noindent\textbf{#1}, \textit{#2}, \faEnvelope~\href{mailto:#3}{#3}, \faMobilePhone~#4 }
+\newcommand{\Recommender}[3]{\noindent\textbf{#1}, \textit{#2}, \href{mailto:#3}{#3} }
+
+% Custom command for publications
+\newcommand{\Publication}[5]{\noindent\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}~#4 \\ #5}
+
+% For numbering publications
+\newcommand{\PubCite}[3]{\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}}
+
+% Footnotes
+\renewcommand{\thefootnote}{\alph{footnote}}
+
+% Drafting assistance
+%\usepackage[doublespacing]{setspace}
+%\usepackage{lineno}
+%\linenumbers
+
+%%::: Custom commands
+% "None yet" and "none" tags for section headers
+\newcommand{\noneyet}{\normalsize{\textit{-- none yet}}}
+\newcommand{\none}{\normalsize{\textit{-- none}}}
+
+\newcommand{\phonesymbol}{\faIcon{phone}\ }
+\newcommand{\emailsymbol}{\faIcon{envelope}\ }
+\newcommand{\addresssymbol}{\faIcon{location-arrow}\ }
+\newcommand{\mobilesymbol}{\faIcon{mobile}\ }
+\newcommand{\homepagesymbol}{\faIcon{link}\ }
+
+\usepackage[backend=biber,sorting=none]{biblatex}
+\addbibresource{bib/main.bib}
+
+\title{Academic qualifications portfolio for Faculty of Science, Lund University}
+\author{Dr. Giordon H. Stark\ {\small\color{gray}(pronouns: point/he/him)}\\[1em]\faIcon{university} Santa Cruz Institute for Particle Physics, UC Santa Cruz, United States}
+\date{}
+
+% DOCUMENT ITSELF
+\begin{document}
+  \maketitle
+
+  \tableofcontents
+
+	\vspace{1cm}
+	\noindent Section H (List of selected publications) and Section I (All attachments and certificates) are uploaded separately, per the academic qualifications portfolio instructions.
+
+  \include{chapters/A-cover-page_personal-letter}
+
+  \include{chapters/B-cv}
+
+  \include{chapters/C-publications}
+
+  \include{chapters/D-research-portfolio}
+
+  \include{chapters/E-teaching-portfolio}
+
+  \include{chapters/F-leadership-administration-portfolio}
+
+  \include{chapters/G-cooperation-innovation-entrepreneurship-portfolio}
+
+	\vspace{2cm}
+
+	% Section H: Individual papers uploaded as individual PDF files
+	\section{List of selected publications}
+	%The individual papers are uploaded as individual PDF files.
+	I uploaded PDFs of the eight publications listed in section \ref{annotatedpapers} as separate files through the Varbi portal.
+
+	% Section I: Attachments and certifications
+	\section{All attachments and certificates}
+	%All attachments and certificates are uploaded as one merged PDF file.
+	Attachments and certificates for all sections are uploaded separately as a merged file.
+
+	\vspace{0.5cm}
+	\noindent Tack f\"or att du l\"aste min ans\"okan.
+
+\end{document}
