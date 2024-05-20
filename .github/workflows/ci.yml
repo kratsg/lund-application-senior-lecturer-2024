@@ -24,6 +24,10 @@ jobs:
       - name: Move to deploy directory
         run: |
           mv application.pdf deploy/application.pdf
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: deploy/
 
   deploy:
     # Add a dependency to the build job
