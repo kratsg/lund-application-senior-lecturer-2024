@@ -1,0 +1,32 @@
+name: Build LaTeX document
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile cv
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: application.tex
+      - name: Move to deploy directory
+        run: |
+          mv application.pdf deploy/application.pdf
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        if: github.event_name == 'push'
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: deploy # The folder the action should deploy.
