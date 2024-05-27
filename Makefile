@@ -1,8 +1,13 @@
-SOURCES=$(wildcard ./chapters/*.tex ./*.bib ./attachments/*)
+SOURCES=$(wildcard ./preamble.tex ./chapters/*.tex ./*.bib ./attachments/cover-letter-academic-position-180928.pdf ./attachments/signature.png)
+ATTACHMENTS=$(wildcard ./preamble.tex ./attachments/*/*)
 
-all: application.pdf # application_attachments.pdf
+all: application.pdf application_attachments.pdf
 
-%.pdf: %.tex $(SOURCES)
+application.pdf: application.tex $(SOURCES)
+				latexmk -pdf $(basename $@)
+				make cleanpartial
+
+application_attachments.pdf: application_attachments.tex $(ATTACHMENTS)
 				latexmk -pdf $(basename $@)
 				make cleanpartial
 
