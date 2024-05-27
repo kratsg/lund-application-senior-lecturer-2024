@@ -21,9 +21,14 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: application.tex
+      - name: Compile attachments
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: application_attachments.tex
       - name: Move to deploy directory
         run: |
           mv application.pdf deploy/application.pdf
+          mv application_attachments.pdf deploy/application_attachments.pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:

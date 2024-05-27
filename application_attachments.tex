@@ -1,0 +1,129 @@
+\include{preamble}
+
+% DOCUMENT ITSELF
+\begin{document}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
+\setcounter{chapter}{8}
+\chapter{All attachments and certificates}
+\, \\
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+
+\begingroup
+\let\clearpage\relax
+\tableofcontents*
+\endgroup
+
+\clearpage
+
+\setcounter{chapter}{1}
+\chapter{Curriculum vitae}
+\begin{figure}[h!]
+	\centering
+	\caption{\textbf{California Institute of Technology, B.S. in Physics, 2012.}}
+	\includegraphics[width=0.9\textwidth]{attachments/B-CV/BS}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{\textbf{University of Chicago, Ph.D. in Physics, 2018.}}
+	\includegraphics[width=0.9\textwidth]{attachments/B-CV/PhD}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\caption{\textbf{CERN}: Fellow contract}
+	\includegraphics[width=0.9\textwidth]{attachments/B-CV/cernFellowContract.pdf}
+\end{figure}
+
+\setcounter{chapter}{3}
+\chapter{Research qualifications portfolio}
+
+\chapter{Teaching qualifications portfolio}
+% A total of 20 pages maximum of attachments to illustrate and document educational activities including for example
+% a) Certificates of formal courses in teaching and learning in higher education
+% b) Relevant Certificates of service
+% c) Educational development plan, if applicable
+% d) Processed course evaluation material (I have my student reviews)
+I have scanned copies of written notes, as well as digital versions of various notes for discussion sections I led, as well as training notes for lab courses and classes I taught or led at Caltech and University of Chicago. In addition, there are training materials for workshops, bootcamps, and tutorials I organized / instructed for publicly available on the web (and continuously maintained / updated over time). There is a lot of material, and I am able to provide specific materials upon request. Below is a highlight / overview of the breadth.
+
+\begin{itemize}
+	\item UChicago TA Evaluations
+	\item Example of notes for a discussion section
+	\item Example ATLAS qualification project description
+	\item Caltech Student Instructor Courses
+	\item Caltech TA Award
+\end{itemize}
+
+\paragraph{Example ATLAS qualification projects description}
+\begin{displayquote}
+	{STUDENT} will develop a software package to perform statistical data
+	analysis on data from ITk Pixel Module QC results for pre-production, with
+	a focus on the electrical testing portions. This package will be developed
+	in python, documented, and use Git version-control. GitLab at CERN will be
+	used to host the package in the ITk Pixel Module group
+	(https://gitlab.cern.ch/atlas-itk/pixel/module). The project will rely on
+	existing work, itkdb (https://itkdb.docs.cern.ch/), for all interactions
+	with the ATLAS ITk Production Database. The package will be a collection of
+	different types of data analysis on the ITk Pixel Module QC results, each
+	with its own configuration that can also be serialized using JSON. This
+	configuration will have two parts described below. The first part is about
+	the dataset of interest; describing which modules to include and which data
+	linked to them to perform the analysis. The second part is about the
+	processing of the datasets; describing the analysis to execute and
+	registering the outputs to be saved. The deliverables of the software will
+	be to analyse the distribution of a given QC measurement across modules of
+	various origins and across multiple QC stages. It should also be able to
+	investigate standard reporting such as the observed yield, e.g., by
+	identifying the parameters of the quality control that have the strongest
+	impact. The work will be documented both in the GitLab project as well as
+	within an internal note. Regular progress reports will be made in the ATLAS
+	ITk Pixel Module meetings.
+\end{displayquote}
+-- \textit{written for a Physics PhD student at Saclay CEA, with myself as technical supervisor}
+
+\begin{displayquote}
+	This technical project deals with the development and implementation of QA/QC
+	procedures for the ATLAS ITk Pixel On-Detector Services. All of the
+	institutes working with Type-1 electrical services have acquired Cirris
+	cable tester units, but these units do not have the software interface
+	needed for testing or uploading results to the ITk production databases.
+	The deliverable for this project is the common software framework and
+	standard operating procedures needed to integrate the Cirris cable testers
+	into the ITk pixel QA/QC workflow. The project comprises the following 3
+	main components: 1. Test definition. In collaboration with the Type-1
+	institutions, develop the test definition, including Cirris configuration
+	files, pin mapping definitions, and translation to Cirris language (Lua
+	programming language). 2. Output parsing/transformation. Parse raw output
+	to prepare summary tables for operators, perhaps even a graphical
+	representation/mapping for easier interpretation and for documentation. 3.
+	Interface with global production database. Working with Type-1 and database
+	experts, preparing the JSON file, checking results graphically (see \#2
+	above), and using ITkDB interface to upload the results to the production
+	database. At the moment, the local DB for the services is not uniformly
+	defined, so the task focuses on the global production DB instead. The
+	progress on this task will be monitored in the ITk Pixel Electronics
+	meeting and the Production Database meetings. It will be summarized at the
+	end in an ATLAS note.
+\end{displayquote}
+-- \textit{written for a Physics PhD student at UCSC, with myself as local supervisor}
+
+
+\section{Certificates of formal courses in teaching and learning in higher education \noneyet} \label{sec:certificates-of-formal-courses-in-teaching-and-learning-in-higher-education-noneyet}
+\section{Relevant Certificates of service \noneyet} \label{sec:relevant-certificates-of-service-noneyet}
+\section{Educational development plan, if applicable \normalsize{\textit{-- not applicable}}} \label{sec:educational-development-plan-if-applicable-not-applicable}
+\section{Course evaluations} \label{sec:course-evaluations}
+
+\section{Portfolio of leadership and administration} \label{sec:portfolio-of-leadership-and-administration}
+% Formal leadership courses and certificates of service
+
+\setcounter{chapter}{6}
+\chapter{Portfolio of cooperation with wider society, innovation, and entrepreneurship}
+% A total of 10 pages maximum of selected attachments may be included to illustrate and document the activities
+\begin{itemize}
+	\item ASLCore screenshot
+	\item Red Cross Award
+	\item Media on my website
+	\item Dissertation defense Game of Thrones advertisement
+\end{itemize}
+
+\end{document}
