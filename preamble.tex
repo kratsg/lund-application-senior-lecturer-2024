@@ -50,6 +50,9 @@
 
 \usepackage{url}
 
+% DOI
+\usepackage{doi}
+
 % Scientific SI units
 \usepackage{siunitx}
 \usepackage{hepnames}
@@ -92,7 +95,7 @@
 \newcommand{\Recommender}[3]{\noindent\textbf{#1}, \textit{#2}, \faIcon{envelope}~\href{mailto:#3}{#3} }
 
 % Custom command for publications
-\newcommand{\Publication}[5]{\noindent\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}~#4 \\ #5}
+\newcommand{\Publication}[6]{\noindent\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}~#5\hfill\doi{#4} \\ #6}
 
 % For numbering publications
 \newcommand{\PubCite}[3]{\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}}
