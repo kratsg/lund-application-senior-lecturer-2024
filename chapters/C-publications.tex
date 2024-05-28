@@ -1,1 +1,48 @@
 \chapter{List of Selected Publications} \label{annotatedpapers}
+
+The papers below are presented in reverse chronological order (newest first).
+
+\newcounter{publication}
+\newcommand{\PubBase}[4]{\stepcounter{publication}\Publication{#1}{white}{\thepublication}{#2}{#3}{#4}}
+\newcommand{\PubSoftware}[3]{\PubBase{darkgray}{#1}{#2}{#3}}
+\newcommand{\PubAnalysis}[3]{\PubBase{red}{#1}{#2}{#3}}
+\newcommand{\PubFuture}[3]{\PubBase{blue}{#1}{#2}{#3}}
+\newcommand{\PubAccessibility}[3]{\PubBase{green!50!black}{#1}{#2}{#3}}
+
+\begin{center}
+	\colorbox{darkgray}{\textcolor{white}{Software \& Computing\strut}}~\colorbox{red}{\textcolor{white}{Analysis\strut}}~\colorbox{blue}{\textcolor{white}{Future Facilities\strut}}~\colorbox{green!50!black}{\textcolor{white}{Accessibility\strut}}
+\end{center}
+
+\PubAnalysis{10.21468/SciPostPhysCodeb.27}{First author, 2024 - journal article and code}{\textit{Reduce, reuse, reinterpret: An end-to-end pipeline for recycling particle physics results}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2306.11055}{2306.11055[physics.hep-ex]}}.}
+\begin{quotation}
+	I first started my postdoc tenure at UCSC in 2018 thinking about how far software has come.
+	I surmised that it should be possible to run a full analysis \enquote{end-to-end} from generation to statistical analysis all in \faIcon{python}~Python.
+	However, the tooling did not completely exist and I spent a lot of time working on other pieces of this pipeline in order to make this paper a reality.
+	Finally, after about 5 years, all the steps were in place, and my supervisor and I had a good physics case for performing a reinterpretation -- particularly inspired by the $g-2$ results that came out of Fermilab.
+	In addition, there was another ATLAS analysis searching for supersymmetry that we had published a few years prior that I spent time getting the full probability model publicly available for.
+	Guided by our lofty vision, I sat down and fleshed out the entire python package, \texttt{MaPyDe}, that would provide the functionality to exercise this pipeline.
+	This paper presents the existence of this software package, in addition to two separate novel reinterpretations of existing ATLAS searches to demonstrate the efficacy.
+	Now, \texttt{MaPyDe} is used to quickly do reinterpretation, as well as being an approachable pedagogical tool for undergraduate education in particle physics.
+\end{quotation}
+
+\PubAnalysis{10.48550/arXiv.2402.08347}{ATLAS Collaboration, 2024 - submitted to PRL}{\textit{A statistical combination of ATLAS Run 2 searches for charginos and neutralinos at the LHC}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.08347}{2402.08347[physics.hep-ex]}}.}
+\begin{quotation}
+	I started this analysis right at the beginning of my postdoc at UCSC.
+	I was the Combinations contact person along with two others, and our job was to coordinate the analysis selections for the fourteen analyses that would eventually go into this paper.
+	I spent a lot of time determining the statistical overlaps between the analyses, defining the harmonized object definitions and selections that all teams had to use, and provided recommendations on the treatment of the systematic uncertainties for all the teams.
+	Once I became the convenever for the Run-2 Summaries physics subgroup, I appointed \enquote{ATLAS Analysis Contacts} who would help me see this through to publication.
+	The team continued to focus on validating the probability models provided by the analysis teams and trying out various schemes for (de)correlating systematics between the channels, ascertaining their impact on the final results reported in the paper.
+	In parallel, I worked to finalize the missing tooling needed to perform the statistical combinations properly and did some outreach with theorists to get them ready to be able to use the results of this paper once it was public.
+	This paper is the first of its kind, paving the way to perform a statistical combination in particle physics, using probability models that have each been individually published by the corresponding analysis, and also provides the combined probability models used.
+\end{quotation}
+
+\PubAnalysis{doi.org/10.1007/JHEP05(2024)106}{ATLAS Collaboration, 2024 - journal article}{\textit{ATLAS Run 2 searches for electroweak production of supersymmetric particles interpreted within the pMSSM}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.01392}{2402.01392[physics.hep-ex]}}.}
+
+\begin{quotation}
+	The pMSSM efforts within ATLAS is a large-scale computational effort that attempts to probe a 19-parameter phenomenological minimal supersymmetric standard model.
+	This analysis allows us to reuse existing ATLAS analyses that were designed to search for unphysical, simplified models by reinterpreting them and assessing their sensitivity to more physical scenarios predicted by supersymmetry.
+	I helped lead the team during my convenership, designing the approach taken in the paper, as well as helping develop the software tooling that underlied the phase-space sampling needed to perform the reinterpretation.
+	In addition, I migrated the internal ATLAS code for Monte Carlo production that the paper relied on to produce datasets for the team to use for analysis work.
+	I also worked on the $g-2$ interpretations to summarize ATLAS' current sensitivity to probing the Standard Model measurement reported by Fermilab and ATLAS published this as two separate summary plots to use as reference.
+	Finally, I worked on the particle-level analysis software that our team relied on to get these results out.
+\end{quotation}
