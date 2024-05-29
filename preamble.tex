@@ -4,15 +4,20 @@
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]{\normalfont\Large\bfseries}{\thechapter:}{1em}{}
 \titleformat{\section}[hang]{\normalfont\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}[hang]{\normalfont\large\bfseries\itshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{1em}{}
 
 % Table of contents formatting
 \setcounter{tocdepth}{0}
 
+% numbering shown down to sub-sub-section
+
+\setcounter{secnumdepth}{3}
 % Section formatting
 \renewcommand\thechapter{\Alph{chapter}}
 \renewcommand\thesection{\thechapter.\arabic{section}}
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-\renewcommand\thesubsubsection{\thesubsection.\alph{subsubsection}}
+\renewcommand\thesubsection{\alph{subsection})}
+\renewcommand\thesubsubsection{\roman{subsubsection}.}
 \titlespacing\chapter{0em}{-2em}{0em}
 \titlespacing\section{0em}{2em}{0em}
 \titlespacing\subsection{0em}{2em}{0em}
