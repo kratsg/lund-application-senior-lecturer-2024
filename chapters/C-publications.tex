@@ -1,31 +1,49 @@
 \chapter{List of Selected Publications} \label{annotatedpapers}
 
-The papers below are presented in reverse chronological order (newest first).
+The publications below are presented in reverse chronological order (newest first).
 
 \newcounter{publication}
 \newcommand{\PubBase}[4]{\stepcounter{publication}\Publication{#1}{white}{\thepublication}{#2}{#3}{#4}}
 \newcommand{\PubSoftware}[3]{\PubBase{darkgray}{#1}{#2}{#3}}
-\newcommand{\PubAnalysis}[3]{\PubBase{red}{#1}{#2}{#3}}
-\newcommand{\PubFuture}[3]{\PubBase{blue}{#1}{#2}{#3}}
+\newcommand{\PubExperiment}[3]{\PubBase{red}{#1}{#2}{#3}}
+\newcommand{\PubFacilities}[3]{\PubBase{blue}{#1}{#2}{#3}}
 \newcommand{\PubAccessibility}[3]{\PubBase{green!50!black}{#1}{#2}{#3}}
+\newcommand{\PubTheory}[3]{\PubBase{magenta}{#1}{#2}{#3}}
 
 \begin{center}
-	\colorbox{darkgray}{\textcolor{white}{Software \& Computing\strut}}~\colorbox{red}{\textcolor{white}{Analysis\strut}}~\colorbox{blue}{\textcolor{white}{Future Facilities\strut}}~\colorbox{green!50!black}{\textcolor{white}{Accessibility\strut}}
+	\colorbox{darkgray}{\textcolor{white}{\textbf{Software \& Computing}\strut}}~\colorbox{red}{\textcolor{white}{\textbf{Experiment}\strut}}~\colorbox{magenta}{\textcolor{white}{\textbf{Theory}\strut}}~\colorbox{blue}{\textcolor{white}{\textbf{Future Facilities}\strut}}~\colorbox{green!50!black}{\textcolor{white}{\textbf{Accessibility}\strut}}
 \end{center}
 
-\PubAnalysis{10.21468/SciPostPhysCodeb.27}{First author, 2024 - journal article and code}{\textit{Reduce, reuse, reinterpret: An end-to-end pipeline for recycling particle physics results}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2306.11055}{2306.11055[physics.hep-ex]}}.}
+\PubSoftware{in-progress}{Formation Task Force for the CPSC, 2024 - in-progress}{\textit{Forming the Coordinating Panel for Software and Computing}, G. Stark et al.}
+\begin{quotation}
+	The Executive Committee of the Division of Particles and Fields (DPF) of the American Physical Society charged us to define the role and governance of a Coordinating Panel for Software and Computing (CPSC) to be hosted by DPF.
+	I was honored ot be chosen as one of two Early Career members on this task force, compromised of nineteen members.
+	This is in-progress, with a draft disclosed for the purposes of this application only, for the reviewers to understand the scope.
+	This document that I have been involved in from January 2024 until June 2024 will define a new committee managed by DPF to coordinate the future of Software and Computing for U.S. High Energy Physics efforts in entirety.
+	While all members contributed to all parts of the document equally in its current form, I was initially tasked with editing the \enquote{Implementation Strategies} section, and reviewing the \enquote{Career Development} and \enquote{Broaden Representation in S\&C} sections.
+	When this is complete, it will be reviewed by the DPF Executive Committee, and modifications of the bylaws will occur and the CPSC will be formed as a new committee alongside CPAD (Coordinating Panel for Advanced Detectors).
+\end{quotation}
+
+\PubFacilities{10.48550/arXiv.2404.02100}{Limited Author, 2024 - pre-print}{\textit{Analysis Facilities White Paper}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2404.02100}{2404.02100~[physics.hep-ex]}}.}
+\begin{quotation}
+	While this paper has not been peer-reviewed, I consider it important to me as one of my goals is to improve the accessibility of physics for all.
+	I contributed to all of the discussions to define what a suitable Analysis Facility (AF) should look like to support future generations of physicists in the HL-LHC era, starting in 2029.
+	My focus in this paper was primarily on the user-facing experience, streamlining the collaborative experience of an analysis team on a single set of resources, and ensuring that analysis work was preservable and reproducible.
+\end{quotation}
+
+\PubExperiment{10.21468/SciPostPhysCodeb.27}{First author, 2024 - journal article and code}{\textit{Reduce, reuse, reinterpret: An end-to-end pipeline for recycling particle physics results}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2306.11055}{2306.11055~[physics.hep-ex]}}.}
 \begin{quotation}
 	I first started my postdoc tenure at UCSC in 2018 thinking about how far software has come.
-	I surmised that it should be possible to run a full analysis \enquote{end-to-end} from generation to statistical analysis all in \faIcon{python}~Python.
+	I surmised that it should be possible to run a full analysis \enquote{end-to-end} from generation to statistical analysis all in \faIcon{python}~\texttt{Python}.
 	However, the tooling did not completely exist and I spent a lot of time working on other pieces of this pipeline in order to make this paper a reality.
 	Finally, after about 5 years, all the steps were in place, and my supervisor and I had a good physics case for performing a reinterpretation -- particularly inspired by the $g-2$ results that came out of Fermilab.
 	In addition, there was another ATLAS analysis searching for supersymmetry that we had published a few years prior that I spent time getting the full probability model publicly available for.
-	Guided by our lofty vision, I sat down and fleshed out the entire python package, \texttt{MaPyDe}, that would provide the functionality to exercise this pipeline.
-	This paper presents the existence of this software package, in addition to two separate novel reinterpretations of existing ATLAS searches to demonstrate the efficacy.
+	Guided by our lofty vision, I sat down and fleshed out the entire \texttt{Python} package, \texttt{MaPyDe}, that would provide the functionality to exercise this pipeline.
+	This paper presents the existence of this software package, in addition to two separate novel reinterpretations of existing ATLAS searches to demonstrate the efficacy, all done outside of the ATLAS collaboration.
 	Now, \texttt{MaPyDe} is used to quickly do reinterpretation, as well as being an approachable pedagogical tool for undergraduate education in particle physics.
 \end{quotation}
 
-\PubAnalysis{10.48550/arXiv.2402.08347}{ATLAS Collaboration, 2024 - submitted to PRL}{\textit{A statistical combination of ATLAS Run 2 searches for charginos and neutralinos at the LHC}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.08347}{2402.08347[physics.hep-ex]}}.}
+\PubExperiment{10.48550/arXiv.2402.08347}{ATLAS Collaboration, 2024 - submitted to PRL}{\textit{A statistical combination of ATLAS Run 2 searches for charginos and neutralinos at the LHC}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.08347}{2402.08347~[physics.hep-ex]}}.}
 \begin{quotation}
 	I started this analysis right at the beginning of my postdoc at UCSC.
 	I was the Combinations contact person along with two others, and our job was to coordinate the analysis selections for the fourteen analyses that would eventually go into this paper.
@@ -36,8 +54,7 @@ The papers below are presented in reverse chronological order (newest first).
 	This paper is the first of its kind, paving the way to perform a statistical combination in particle physics, using probability models that have each been individually published by the corresponding analysis, and also provides the combined probability models used.
 \end{quotation}
 
-\PubAnalysis{doi.org/10.1007/JHEP05(2024)106}{ATLAS Collaboration, 2024 - journal article}{\textit{ATLAS Run 2 searches for electroweak production of supersymmetric particles interpreted within the pMSSM}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.01392}{2402.01392[physics.hep-ex]}}.}
-
+\PubExperiment{10.1007/JHEP05(2024)106}{ATLAS Collaboration, 2024 - journal article}{\textit{ATLAS Run 2 searches for electroweak production of supersymmetric particles interpreted within the pMSSM}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2402.01392}{2402.01392~[physics.hep-ex]}}.}
 \begin{quotation}
 	The pMSSM efforts within ATLAS is a large-scale computational effort that attempts to probe a 19-parameter phenomenological minimal supersymmetric standard model.
 	This analysis allows us to reuse existing ATLAS analyses that were designed to search for unphysical, simplified models by reinterpreting them and assessing their sensitivity to more physical scenarios predicted by supersymmetry.
@@ -45,4 +62,49 @@ The papers below are presented in reverse chronological order (newest first).
 	In addition, I migrated the internal ATLAS code for Monte Carlo production that the paper relied on to produce datasets for the team to use for analysis work.
 	I also worked on the $g-2$ interpretations to summarize ATLAS' current sensitivity to probing the Standard Model measurement reported by Fermilab and ATLAS published this as two separate summary plots to use as reference.
 	Finally, I worked on the particle-level analysis software that our team relied on to get these results out.
+\end{quotation}
+
+\PubExperiment{10.1140/epjc/s10052-023-11543-6}{ATLAS Collaboration, 2023 - journal article}{\textit{Search for supersymmetry in final states with missing transverse momentum and three or more b-jets in $139\ \mathrm{fb}^{-1}$ of proton–proton collisions at $\sqrt{s} = 13\ \mathrm{TeV}$ with the ATLAS detector}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2211.08028}{2211.08028~[physics.hep-ex]}}.}
+\begin{quotation}
+	This is my thesis analysis and I was the lead analyzer.
+	The analysis sets the strongest limits on the mass of gluinos (supersymmetric partners of the gluon) that we have today in particle physics.
+	I was responsible for defining the signal, control, and validation regions for the discovery portion of the analysis, optimizing all of the kinematic selections for maximal sensitivity.
+	I also wrote the entire statistical fitting procedure, came up with a novel approach for estimating the theoretical uncertainties that arise from the Monte Carlo generators, and uncertainties due to the estimation of the Standard Model backgrounds because of the data-driven normalization procedure I chose.
+	Finally, I pioneered the first fully-preserved analysis code via RECAST (back in 2018) making this analysis the first in ATLAS to support the preservation efforts that are on-going today.
+\end{quotation}
+
+\PubAccessibility{10.48550/arXiv.2203.08748}{Limited Author, 2022 - Snowmass Whitepaper}{\textit{Accessibility in High Energy Physics: Lessons from the Snowmass Process}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2203.08748}{2203.08748~[physics.ed-ph]}}.}
+\begin{quotation}
+	As the first Deaf physicist outside of Europe, I have and continue to face many barriers and wanted to provide some framework allowing others to make future events more accessible for people like myself.
+	This paper was the work of the twelve of us who were invested in ensuring that the future of particle physics continued to remain inclusive, equitable, and accessible.
+	My ability to contribute to the Snowmass Community Summer Study was inhibited by the lack of accessbility provided by the APS Division of Particles and Fields.
+	I contributed to this paper, both through my personal experience suffering through this process, and also putting together concrete sets of recommendations to make events more inclusive.
+	I helped frame the paper in the context of the Americans with Disabilities Act (ADA) of 1990 to highlight the shortcomings of the 30+ year-old law.
+	Finally, I provided all information to accomodate persons from an auditory perspective -- describing all the different solutions that exist and pointing out the pros/cons for each solution to enable event organizers/management to make a decision that is equitable and appropriate for their participants.
+	This paper was included as part of the final Snowmass proceedings and was used by the Particle Physics Project Prioritization Panel (P5) in their report to the U.S. funding agencies.
+\end{quotation}
+
+\PubTheory{10.21468/SciPostPhys.12.1.037}{Limited Author, 2021 - journal article}{\textit{Publishing statistical models: Getting the most out of particle physics experiments}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2109.04981}{2109.04981~[physics.hep-ph]}}.}
+\begin{quotation}
+	Following the momentum of getting ATLAS to be the first particle physics experiment to release a full probability model, I continued to work closely with theorists and phenomenologists to define \enquote{best practices} and ensure maximal reuse of these results from experimental analyses.
+	I contributed to the high-level discussions of that paper, from the perspective of an experimentalist trying to publish data, and coordinated this effort within the ATLAS Collaboration as I was a convener at the time.
+	One thing I would like to point out with this publication is the call-out of \enquote{Infrastructure for open-world models} which is an area lacking effort and development, and part of my research program will be to improve this.
+	In the paper below about \texttt{pyhf}, it should be clear that the infrastructure for \enquote{closed-world models} is relatively crowded, better understood, and less interesting to continue efforts in.
+\end{quotation}
+
+\PubSoftware{10.1051/epjconf/202024506017}{Limited Author, 2020 - journal article}{\textit{Likelihood preservation and statistical reproduction of searches for new physics}, G. Stark et al.}
+\begin{quotation}
+	This is what I consider one of the most pivotal papers (and pieces of work), with two other colleagues of mine, working towards my goal of making physics more accessible.
+	The three of us were core developers on a tool called \href{https://scikit-hep.org/pyhf/}{\texttt{pyhf}} which both provided a schema for the plain-text, machine-readable serialization of a class of mathematical likelihood functions called \texttt{HistFactory} in addition to a pure-\texttt{Python} implementation for performing statistical inference on these likelihood functions.
+	The paper is a peer-reviewed version of a public note from ATLAS (\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2019-029}{\texttt{ATL-PHYS-PUB-2019-029}}) which announced the first full probability model published by the ATLAS Experiment.
+	This paper marked the beginning of a paradigm shift, with well over 100+ citations of \texttt{pyhf} itself and welcomed with open arms by the theory/phenomenology communities, indicating the utility of making physics even more accessible.
+\end{quotation}
+
+\PubExperiment{internal-only}{Limited Author, 2016 - Final Design Report}{\textit{Global Feature Extractor of the Level-1 Calorimeter Trigger : ATLAS TDAQ Phase-I Upgrade gFEX Final Design Report}, G. Stark et al.}
+\begin{quotation}
+	To round off the above publications, I wanted to highlight one publication from my graduate studies that is not my thesis, nor my thesis analysis; but it is instead the instrumentation upgrade that I worked on.
+	I was an editor for this 500+ page technical document that detailed the full design of a new module for the trigger system of the ATLAS Experiment that has been installed and commissioned since October 2021.
+	I realize this is not a typical \enquote{peer-reviewed} publication, but it was a document that was reviewed and approved by LHC Committee (a steering committee that oversees detector R\&D projects) and I am proud of the success of our documentation of the design of the new trigger module which is running on data during the third operating of the LHC.
+	While I did not contribute strictly to the firmware design, I came up with the register map for interfacing with the board, codifying the output formats for the trigger objects used to make a real-time decision on whether to accept or reject the event.
+	I also designed the customized operating system for the System-on-Chip, as well as a \texttt{Python}-based implementation of the \texttt{IPBus} communication protocol that is used in the Level-1 Calorimeter system of ATLAS.
 \end{quotation}

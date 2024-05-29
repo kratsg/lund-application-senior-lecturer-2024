@@ -36,7 +36,6 @@ repos:
       - id: consistent-spelling
         args:
             [
-              "--emph=et al.",
               "--emph=a priori",
               "--emph=a posteriori",
               '--regex=naive=\bna(i|\\"i)ve',
