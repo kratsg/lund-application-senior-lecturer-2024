@@ -22,3 +22,17 @@ for bib in ['./papers.bib', './works.bib']:
         )
         print(f"\Publication{publication}{doi_item}{{{item.fields['title']}}}{{{author}}}{{{journal}}}{{{eprint}}}{primary_class}".replace('{{','{').replace('}}','}'))
     print('-'*20)
+
+
+for bib in ['./talks.bib']:
+    parser = bibtex.Parser()
+    bib_data = parser.parse_file(bib)
+
+    for key, item in bib_data.entries.items():
+        month = item.fields.get('month', 'NONE')
+        year = item.fields.get('year', 'NONE')
+        url = item.fields.get('url', '')
+        note = item.fields.get('note', '')
+
+        print(f"\Presentation{{{item.fields['title']}}}{{{note}}}{{{url}}}{{{month}, {year}}}".replace('{{','{').replace('}}','}'))
+    print('-'*20)
