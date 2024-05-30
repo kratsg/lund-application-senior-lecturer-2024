@@ -111,24 +111,16 @@
 % Custom command for publications
 \newcommand{\SelectedPublication}[6]{\noindent\PubCite{#1}{#2}{#3}~#5\hfill\doi{#4} \\ #6}
 
-% Custom environment/command for listing publications
-\newenvironment{publications}[2][noresume]{
-\ifthenelse{\equal{#1}{noresume}}{
-	\begin{enumerate}[label=\PubCite{#2}{white}{\arabic*}]
-}{
-	\begin{enumerate}[label=\PubCite{#2}{white}{\arabic*},#1]
-		}
-		}{\end{enumerate}}
-
 % \Publication[doi]{title}{author list}{journal name}{arXiv}{arxiv category}
 % \Publication[10.1007/JHEP03(2018)095]{Measurement of the Higgs boson coupling properties in the $H\rightarrow ZZ^{(*)}\rightarrow4\ell$ decay channel at $\sqrt{s}$ = 13 TeV with the ATLAS detector}{ATLAS Collaboration}{JHEP 03 (2018) 095}{1712.02304}{physics.hep-ex}
-\newcommand{\PublicationBase}[5][nodoi]{\textit{#2}, #3, #4, #5 \ifthenelse{\equal{#1}{nodoi}}{doi: none}{\doi{#1}}}
+\newcommand{\PublicationBase}[5][nodoi]{\textit{#2}, #3, #4, #5 \ifthenelse{\equal{#1}{nodoi}}{\strut}{\doi{#1}}}
 \newcommand{\Publication}[6][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{arXiv:\href{https://arxiv.org/abs/#5}{#5 [#6]}}}
-\newcommand{\PublicationConf}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{CONF:\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/#5}{#5}}}
-\newcommand{\PublicationPub}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{PUB:\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/#5}{#5}}}
+\newcommand{\PublicationConf}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/#5}{#5}}}
+\newcommand{\PublicationPub}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/#5}{#5}}}
 \newcommand{\PublicationProc}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{proceedings:#5}}
 \newcommand{\PublicationThesis}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{thesis:#5}}
-\newcommand{\PublicationInt}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{INT:\href{https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/#5}{#5}}}
+\newcommand{\PublicationCode}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{code:#5}}
+\newcommand{\PublicationInt}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{\faIcon{lock}:#5}}
 
 \newcommand{\Award}[3]{\parbox{\textwidth}{\noindent\textbf{#1} \hfill \fcolorbox{black}{black!10}{#2}\vspace{0.5em}\hrule\vspace{-0.5em}\begin{quotation}\small\noindent#3\end{quotation}}}
 
