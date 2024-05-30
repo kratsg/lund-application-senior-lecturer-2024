@@ -4,8 +4,11 @@
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]{\normalfont\Large\bfseries}{\thechapter:}{1em}{}
 \titleformat{\section}[hang]{\normalfont\large\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}[hang]{\normalfont\large\bfseries\itshape}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{1em}{}
+\titleformat{\subsection}[hang]{\normalfont\normalsize\bfseries}{\thesection\thesubsection)}{1em}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize}{\thesection\thesubsection-\thesubsubsection.}{1em}{}
+
+\labelformat{subsection}{\thesection#1}
+\labelformat{subsubsection}{\thesubsection.#1}
 
 % Table of contents formatting
 \setcounter{tocdepth}{0}
@@ -16,12 +19,15 @@
 % Section formatting
 \renewcommand\thechapter{\Alph{chapter}}
 \renewcommand\thesection{\thechapter.\arabic{section}}
-\renewcommand\thesubsection{\alph{subsection})}
-\renewcommand\thesubsubsection{\roman{subsubsection}.}
+\renewcommand\thesubsection{\alph{subsection}}
+\renewcommand\thesubsubsection{\roman{subsubsection}}
 \titlespacing\chapter{0em}{-2em}{0em}
 \titlespacing\section{0em}{2em}{0em}
 \titlespacing\subsection{0em}{2em}{0em}
 \titlespacing\subsubsection{0em}{2em}{0em}
+
+% Foreground & background color management
+\usepackage[table]{xcolor}
 
 \usepackage[utf8]{inputenc}
 \usepackage{fontawesome5}
@@ -32,9 +38,6 @@
 % For subfloat
 \usepackage{subfig}
 \usepackage{graphicx}
-
-% Foreground & background color management
-\usepackage{xcolor}
 
 % Insertable PDFs
 \usepackage{pdfpages}
@@ -104,6 +107,8 @@
 
 % For numbering publications
 \newcommand{\PubCite}[3]{\colorbox{#1}{\textcolor{#2}{\textbf{#3}}}}
+
+\newcommand{\Award}[3]{\parbox{\textwidth}{\noindent\textbf{#1} \hfill \fcolorbox{black}{black!10}{#2}\vspace{0.5em}\hrule\vspace{-0.5em}\begin{quotation}\small\noindent#3\end{quotation}}}
 
 % Footnotes
 \renewcommand{\thefootnote}{\alph{footnote}}
