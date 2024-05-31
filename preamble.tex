@@ -121,10 +121,11 @@
 \newcommand{\PublicationThesis}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{thesis:#5}}
 \newcommand{\PublicationCode}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{code:#5}}
 \newcommand{\PublicationInt}[5][nodoi]{\PublicationBase[#1]{#2}{#3}{#4}{\faIcon{lock}:#5}}
+\newcommand{\PublicationOngoing}[4]{\PublicationBase[nodoi]{#1}{#2}{#3}{#4}}
 
 \newcommand{\Award}[3]{\parbox{\textwidth}{\noindent\textbf{#1} \hfill \fcolorbox{black}{black!10}{#2}\vspace{0.5em}\hrule\vspace{-0.5em}\begin{quotation}\small\noindent#3\end{quotation}}}
 
-\newcommand{\Presentation}[4]{\textit{#1}, #2 \href{#3}{[\faIcon{external-link-alt}~link]} \hfill \fcolorbox{black}{black!10}{#4}}
+\newcommand{\Presentation}[4]{\parbox{0.75\textwidth}{\textit{#1}, #2 \href{#3}{[\faIcon{external-link-alt}~link]}} \hfill \fcolorbox{black}{black!10}{#4}}
 
 % Footnotes
 \renewcommand{\thefootnote}{\alph{footnote}}
