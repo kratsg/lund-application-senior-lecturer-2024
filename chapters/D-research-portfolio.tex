@@ -5,9 +5,93 @@
 \section{Research activity} \label{sec:research-activity}
 
 % This personal reflection is to include an account of completed research projects, current research interests and plans for the future. The attachments that are necessary to confirm the contents of the personal reflection are to be attached respectively to the list of qualifications and the list of publications below. The reflection should not exceed 8 pages for professorships and senior lectureships and 4 pages for other teaching positions.
-\subsection{Previous research activity}\label{ssec:previous-research-activity}
-\subsection{Current research}\label{ssec:current-research}
-\subsection{Plans for the future}\label{ssec:plans-for-the-future}
+% \subsection{Previous research activity}\label{ssec:previous-research-activity}
+% \subsection{Current research}\label{ssec:current-research}
+% \subsection{Plans for the future}\label{ssec:plans-for-the-future}
+
+\subsection{Introduction} \label{ssec:introduction}
+
+The Standard Model (SM) of particle physics has stood up to rigorous decades of testing by many experiments and has shown to be robust. Even given the experimental success, this is not the complete model. Physicists need to reconcile current tensions between theory and experimental measurements:
+\\
+\begin{itemize}
+	\item the matter/anti-matter asymmetry not observed in the detector%~\cite{canetti2012matter},
+	\item the fine-tuning required to the quantum corrections to keep the Higgs mass around the electroweak scale%~\cite{Baer:2013ava},
+	\item the lack of inclusion of gravity, and the lack of dark matter candidates even though physicists agree that dark matter exists%~\cite{bertone2005particle} even though physicists agree that dark matter exists~\cite{Ade:2015xua},
+	\item the scale difference between the Planck scale and the Electroweak scale (the so-called Hierarchy problem)%~\cite{tHooft:1980xss},
+	\item and many more\\%~\cite{doi:10.1143/PTP.36.1266,VOLKOV1973109,ArkaniHamed:1998rs,Randall:1999ee}
+\end{itemize}
+
+My research at the Large Hadron Collider (LHC) focuses on furthering our understanding of the Standard Model at the energy frontier and answering these questions. I imagine myself like Sherlock Holmes, using the footprints of the collision data to look for patterns to reconstruct a picture of the actual collision. The enormous energy scale of the proton-proton collisions at the ATLAS detector produces showers of Lorentz-boosted partons that form Standard Model hadrons (with interesting substructure) and a large amount of missing transverse momentum (MET). A tell-tale signature of many beyond the Standard Model (BSM) theories.
+\\
+\\
+Over the next decade, I plan to focus on the third and fourth runs of the LHC with a broad research program. First, I plan to expand personpower in the Software and Computing efforts to prepare the ATLAS collaboration for the significant increases in the computing demands by the detector. I can support students, postdocs, and researchers through the NSF-funded IRIS-HEP (Institute for Research and Innovation in Software for High Energy Physics) and HSF (HEP Software Foundation) projects.
+\\
+\\
+Second, I want to ramp up a hardware-based trigger program to approach the technical challenges of data throughput and pile-up with an upgraded ATLAS detector and a high-luminosity LHC (HL-LHC). We should take advantage of the commercial development of FPGAs, ASICs, and GPGPUs to maintain a baseline trigger efficiency for physics without blowing up the data-throughput rate for saving to disk. Finally, I plan to advance the physics opportunities at the LHC by making measurements of Standard Model phenomena, searching for signs of rare Standard Model processes at the electroweak energy scale, and studying the robustness of my physics program at future colliders, such as the HL-LHC, FCC, and a muon collider.
+
+\subsection{Software and Computing} \label{ssec:software-and-computing}
+Towards the end of this decade, the High Luminosity phase of the LHC will begin. The HEP computing environment is also changing rapidly, and the software needs to evolve to meet the data-intensive scientific research that the HL-LHC demands. This section will describe areas where my research program can significantly advance the field towards the exabyte era.
+
+\subsubsection{Open Likelihoods and Reproducibility} \label{sssec:open-likelihoods-and-reproducibility}
+As a postdoc at SCIPP, UC Santa Cruz, I have been in the process of fleshing out my research program within the ATLAS collaboration. I started expanding my BSM portfolio with an ongoing search for supersymmetry (SUSY) via electroweak production. In parallel, I was getting frustrated by the lack of communication and collaboration with particle theorists and phenomenologists. It was apparent that the data the LHC experiments published alongside a paper was not sufficient to allow theorists/phenomenologists to collaborate with us effectively, a multi-pronged problem. The status quo of analysis in ATLAS needed a push to move towards analysis preservation and reproducibility. Outside of ATLAS, we required theorists to come to an agreement on standard formats for various data products~\PubCite{magenta}{white}{12}~\PubCite{darkgray}{white}{19}. %\cite{Cranmer:2021urp,Heinrich2021}.
+\\
+\\
+Alongside a few colleagues within the ATLAS experiment, we started an aggressive campaign to get the analysis encoded in a reproducible workflow and kickstarted the effort for publishing statistical models used in the ATLAS SUSY program~\PubCite{red}{white}{16}. %\cite{ATL-PHYS-PUB-2019-029}.
+So far, the likelihood format has focused on a closed-world statistical model, \enquote{HistFactory}, prolific amongst the LHC experiments. I am a core developer of an open-source python package called \enquote{pyhf} which enables users to run inference on these public likelihoods. The next step (that would be a wonderful fellowship with IRIS-HEP) is for a physics/math/computer science student to develop a similar format for the open-world statistical models, arbitrary functions in a structured language.
+
+\subsubsection{Unfolding + Likelihoods} \label{sssec:unfolding-likelihoods}
+To perform a measurement, one must define a series of \enquote{generator-level matching} selections that allow you to map objects in an event at the reconstruction-level (after detector simulation and reconstruction is performed) to the objects that come out of the generator. This matching is necessary to define a response matrix that describes the detector response to a given generator-level input. We invert this matrix to provide a mapping from the reconstruction-level back to the generator-level. An experimental collider analysis can \enquote{unfold} observations to make a statement about the perturbative accuracy of the Monte Carlo predictions. Experimentalists then communicate those results to theorists who retune these generators and develop the next generation of theoretical predictions for collider-based experiments. Improving our understanding of the cross-section of various Standard Model processes is a crucial component for all collider-based analyses.
+\\
+\\
+Many implementations of unfolding exist, but one primary limitation is the lack of a robust strategy for handling systematics. The systematics tend to be propagated post-ad-hoc by unfolding the $\pm 1 \sigma$ variations. Using a similar roadmap as closed-world public likelihoods, one can develop a serialized format for the unfolding \enquote{model}  with systematic variations directly included, rather than an afterthought. A capable student would perform a Standard Model measurement within a physics analysis via unfolding, serializing to a format interpretable by \enquote{pyhf}, and run inference. Streamlining this workflow will facilitate a paradigm shift in how theorists and experimentalists communicate measurements and make cross-experiment global fits more feasible.
+
+\subsection{Physics Searches} \label{ssec:physics-searches}
+Theorists have proposed many BSM models to resolve the hierarchy problem or explain the unnatural fine-tuning of the Higgs mass. One such group of theories is known as Supersymmetry (SUSY). SUSY is a generalization of space-time symmetries that predicts new bosonic partners for the fermions and new fermionic partners for the SM bosons, all with spins differing by $\frac{1}{2}$ unit.
+\\
+\\
+In SUSY, the lightest supersymmetric particle (LSP) is a dark matter candidate only if $R$-parity conservation (RPC) is assumed. A stable LSP, such as a gravitino $\tilde{g}$ or a neutralino $\tilde{\chi}_1^0$, will be the primary source of MET in an event. This section discusses opportunities through physics searches at the LHC for students to contribute or base their thesis. I explore three primary avenues: SUSY through strong production, SUSY through electroweak production, and SUSY through global fits.
+
+\subsubsection{Dark Matter via Strong SUSY} \label{sssec:dark-matter-via-strong-susy}
+One motivation for SUSY has been through \enquote{naturalness}. The argument follows the line of using the strong Yukawa coupling between the top quark and the Higgs boson to motivate a pair of light supersymmetric top squarks (stop). These light stops ($\tilde{t}_1, \tilde{t}_2$) \enquote{naturally} motivate light gluinos, all of which produce large amounts of hadronic energy, including three jets originating from b-quark decays. This unique signature with many b-jets and MET ($\tilde{\chi}_1^0$). I looked for pair production of gluinos that decayed via strong interactions with third-generation Standard Model particles, $\tilde{g} \to \tilde{t}_1 \tilde{t},  \tilde{t} \to t\tilde{\chi}_1^0, b\tilde{\chi}_1^0$. The analysis set the most robust limits on the mass of the superpartner to the Standard Model gluon particle, the gluino~\PubCite{red}{white}{17,18}. %\cite{SUSY-2016-10,SUSY-2015-10}.
+The search is challenging due to the high multiplicity of objects required: a large amount of MET from a stable lightest supersymmetry partner ($\tilde{\chi}_1^0$, a dark matter particle candidate), and clusters of hadronic energy originated from three different b-quarks in the event. Opportunities exist for students to join the team, contribute to this search's electroweak sector, and identify more reinterpretation possibilities.
+
+\subsubsection{Dark Matter via Electroweak SUSY} \label{sssec:dark-matter-via-electroweak-susy}
+Perhaps a little ironic, but due to the success of the strong production search program, we've been able to set high lower limits on the masses of various SUSY particles, such as the gluino, $\tilde{g}$, at 2.2 TeV! The squarks and gluinos are rapidly approaching the scale at which the current LHC operation cannot further probe and strongly encourages electroweak SUSY. Instead, we assume the sleptons, sneutrinos, bino, wino, and higgsinos to be at the electroweak scale. The electroweakinos (charginos and neutralinos) and sleptons are less constrained by the ATLAS SUSY program.  One subset of this sector that I am interested in is the compressed SUSY regime, where the LSP $\chi_1^0$ is close in mass to a heavier SUSY partner, such as a chargino ($\tilde{\chi}_1^\pm$), a slepton ($\tilde{\ell}$), or second-lightest neutralino ($\tilde{\chi}_2^0$). We define the level of how compressed a SUSY scenario is by determining the mass difference between the LSP and the next lightest SUSY particle, e.g., $\Delta m(\tilde{\chi}_1^\pm, \tilde{\chi}_2^0)$, smaller values are more compressed.
+\\
+\\
+One such scenario being explored right now with two graduate students at SCIPP is to improve upon the first iteration of the ATLAS analysis~\PubCite{red}{white}{78-80} %\cite{ATLAS:2019lng}
+with $140\ \mathrm{fb}^{-1}$ of data to be more competitive with the CMS%~\cite{CMS:2019san}
+result with $36\ \mathrm{fb}^{-1}$ of data in very compressed scenarios. One idea is to explore a Vector Boson Fusion (VBF) topology involving the production of virtual electroweak bosons ($W^*/ Z^*$). In the first wave from ATLAS, the analysis targeted $\Delta m \approx [5, 10]\ \mathrm{GeV}$. We are currently working on improving our sensitivity down to $\Delta m \sim 1\ \mathrm{GeV}$. One such challenge is that a narrower mass splitting translates to a lack of reconstructed leptons in the final state. We need new techniques/handles to explore this highly-compressed region, such as identifying events with two forward jets with a significant separation in rapidity. There is room in this effort for a student to join and perform a reinterpretation with the existing Higgs to Invisible searches, where the preserved Higgs analyses are modified slightly and reprocessed using the SUSY signal models instead.
+
+\subsubsection{Global Fits} \label{sssec:global-fits}
+Another avenue for looking at compressed electroweak SUSY is through slepton sparticles. Looking at a more moderately compressed region than the electroweakino search in the previous subsection, we can target a final state with a jet originating from initial-state radiation (ISR) and two (soft) reconstructed leptons. To explain my interest in this, I need to step back and talk about the global picture a little bit. I have already mentioned in this statement that one of my goals as a particle physicist is to make measurements of the Standard Model. One such experimental observation to measure the anomalous magnetic moment of the muon was performed recently at Fermilab. The muon $g-2$ experiment measured $a_\mu = (g_\mu-2)/2 = 116 592 061 (41) \times 10^{-11}$. %~\cite{PhysRevLett.126.141801}.
+I asked a simple question: \textsl{Do we have any sensitivity to RPC SUSY models compatible with this experimental observation?}. %~\cite{Chakraborti:2021dli}.
+The dominant contributions to $\Delta a_\mu$ will come from chargino-sneutrino loops and smuon-neutralino loops due to the muon and photon couplings. I put together a preliminary summary plot that ATLAS SUSY made public, showing the current analysis sensitivity for the two-lepton searches. The plot shows a pretty large gap in the smuon-chargino plane, highlighting a lack of coverage by our comprehensive SUSY search program. The current work in the compressed SUSY analysis will target lighter smuons, but there is room for a project for a student to work on HL-LHC projections for heavier, $g-2$-inspired smuons. At a larger smuon mass, the cross-section falls off enough that more data is needed, $4\ \mathrm{ab}^{-1}$ should be enough, planned to be delivered by the HL-LHC.
+\\
+\\
+From 2018-2022, I have led the ATLAS SUSY \enquote{summary} effort involving combinations of different analysis signatures for various SUSY models. Similar to the likelihood effort, I knew there would be a need for a harmonization effort. Through my role as the SUSY Combinations Team Contact, I provided recommendations for object identification and selection criteria, developed the toolchains necessary to combine analyses, and performed statistical combinations of likelihoods. Then starting in 2020, a SUSY Summaries subgroup formed. I became the subgroup convener in recognition of the significant efforts I had made thus far. I continue to lead multiple combination efforts for SUSY models that involve electroweak interactions and third-generation particles. I am also overseeing the Run 2 ATLAS Phenomenological Minimal Supersymmetric Standard Model (pMSSM) effort. The pMSSM scans chart out the ATLAS collaboration's sensitivity reach on a 19-dimensional globe of SUSY. They will identify poorly-covered/uncovered regions of phase-space that a new analysis could target. These efforts would not have been possible without my previous work on a standardized likelihood format and pushing for reproducible analysis workflows.
+
+\subsection{Instrumentation and Hardware} \label{ssec:instrumentation-and-hardware}
+The high pile-up environment at the HL-LHC will make it challenging to achieve our physics goals without a robust trigger system in place. We will have more significant amounts of hadronic energy deposits, and increased trigger thresholds will be needed to maintain the same data-throughput rate. In addition, the increase in instantaneous luminosity to $7 \times 10^{34}\ \mathrm{cm}^{-2}\mathrm{s}^{-1}$, with up to 200 simultaneous proton-proton collisions per bunch crossing, puts pressure on the existing tracking and reconstruction algorithms for the trigger. The collision rate will increase by a factor of 5. The current Inner Detector will be bandwidth-saturated in a high-luminosity, high-pile-up environment, designed to handle up to 50 simultaneous proton-proton collisions at an instantaneous luminosity of $2 \times 10^{34}\ \mathrm{cm}^{-2}\mathrm{s}^{-1}$. Finally, the lack of tracking information in a low-level trigger system makes it that much harder to tackle the challenge of the HL-LHC over the next decade.
+\\
+\\
+I collaborated with technicians, engineers, and scientists to design gFEX (global Feature EXtractor), the first dedicated hardware trigger that efficiently selected events containing Lorentz-boosted hadronic objects and significant missing energy~\PubCite{red}{white}{20,45}. %\cite{Begel:2233958,Tang:2104248}.
+This work used state-of-the-art embedded processor technologies (FPGAs, SoCs, GPUs) to process the entire ATLAS calorimeter on a single board and make a decision in 25 nanoseconds. The design includes robust algorithms for estimating pile-up, hadronic jet multiplicity, and MET. My colleagues have installed the hardware in the ATLAS detector for the current Run 3 of the LHC.
+\\
+\\
+I am currently involved in the DOE-funded Inner Tracker (ITk) program at SCIPP, UC Santa Cruz, as part of an extensive international collaboration of institutes working towards improving the charged particle tracking of the ATLAS detector. The baseline goal is to replace the Inner Detector with hardware that provides the same performance in the harsher, radiation-heavy environment of the HL-LHC. The design includes a layout that minimizes the CPU required for track reconstruction, with strategic placement of the pixel sensors within the detector volume. I joined the ATLAS ITk Production Database team in 2019. The Production Database is designed to keep track of components, tests, assemblies, and shipments for all parts used to build the Inner Tracker detector. As of April 2024, there are over 9 million test results, 1 million individual components, and 10 thousand shipments. I wrote a \texttt{Python} package called \href{https://itkdb.docs.cern.ch/latest/}{\texttt{itkdb}} which handled communication with the database API for other ITk users and developers. Around 4 million requests are made to the API on a monthly basis, and \texttt{itkdb} accounts for 80\% of all traffic. I developed a read-only database backup server (full stack), complete with federated authentication and e-group access control logic, for ITk users to prepare weekly reports and keep tabs on production flow metrics and identify data integrity issues with data in the database. Using my expertise with software and databases, I worked across various groups within ITk to ramp up their usage of the Production Database and ensure that we continue to be on track for installation and commissioning by 2029 when we enter the HL-LHC era.
+\\
+\\
+My plan at Lund would be to continue my role with my unique expertise and take advantage of the recent advancements in tracking, both in software and hardware, and develop an Event Filter (EF) system, approved by the LHC Experiments Committee in 2018. The EF system will run offline-like reconstruction algorithms around tagged objects from upstream hardware such as gFEX and ITk. EF would be an excellent way for students to play an essential role in the ATLAS collaboration and give them a hardware project they can carry in their academic careers. The VBF SUSY search I mentioned earlier relies on an efficient MET trigger and low-threshold single-jet/multi-jet triggers. Similarly, the analyses I currently work on looking for boosted hadronic objects depend on these crucial instrumentation upgrades to maintain the efficacy of the ATLAS SUSY program. A new analysis I'm working on~\PubCite{red}{white}{80} will also depend on these developments for HL-LHC. Trigger studies, such as evaluating the performance of the EF design in the context of BSM searches~\PubCite{red}{white}{4} %\cite{Bose:2022obr}
+or SM measurements, are also excellent projects for students to jump in on.
+
+\subsubsection{Future Colliders} \label{sssec:future-colliders}
+The field of particle physics is rapidly expanding, with many options available for the next-generation collider. These new machines will also require detector research and development that I plan to spearhead at Lund. I will be well-positioned to collaborate with local institutions such as Stockholm, KTH, and Uppsala to explore the potential of monolithic active pixel sensors (MAPS) and improved four-dimensional silicon pixel trackers at future facilities such as a muon collider~\PubCite{blue}{white}{5}. %\cite{Black:2022cth}
+Future colliders, like the muon collider, not only serve as a precision measurement Higgs factory but can also measure other SM properties like muon $g-2$. %~\cite{Chakraborti:2021dli}.
+A key challenge in the case of the muon collider is to reduce the primary source of beam-induced background: $\mu \to e \nu \bar{\nu}$, a decay that generates electromagnetic showers of low-energy photons and soft neutrons. Mitigating this requires picosecond timing resolution and robust tracking algorithms to reject secondary interactions.
+
+\subsection{Summary} \label{ssec:summary}
+Between emerging technologies, multiple proposed international collider experiments, and the recently completed Snowmass effort - the next decade of particle physics is going to be incredibly interesting. The next five years of my research program will focus on the third run of the LHC, which started at the beginning of 2022, with plenty of opportunities for students to get involved. A critical piece of this research program is the successful operation of the improved trigger system to allow for the efficient triggering of events with MET and Lorentz-boosted objects. The HL-LHC and future colliders will need robust hardware tracking, and I want to explore the potential of improved pixel trackers at your institution.  I hope you can understand my research program's broad scope at the energy frontier, complementing direct searches for new physics with measurements of Standard Model phenomena, supported by a robust R\&D effort in software and hardware.
 
 \section{Research experience and qualifications} \label{sec:research-experience-and-qualifications}
 
@@ -92,21 +176,21 @@ However, since I typically collaborate with people and not institutions and peop
 
 \begin{itemize}
 	\item Created the ATLAS SUSY Run 2 Summaries subgroup in 2020.
-  \item Led multiple analysis teams on: pMSSM scans (General, Electroweak, and 3rd Generation); Combinations (Electroweak, 3rd Generation); $g-2$ Summaries; and RPV-RPC reinterpretation
-  \item Goal of providing global summaries of the sensitivities of existing ATLAS searches for new physics
-  \item Write public notes documenting necessary procedures for theorists to reinterpret and reuse published results
-  \item Spearheaded the movement of publishing statistical probability models within the ATLAS Collaboration
-  \item Planned and executed the first large-scale statistical combination of fourteen analyses
+	\item Led multiple analysis teams on: pMSSM scans (General, Electroweak, and 3rd Generation); Combinations (Electroweak, 3rd Generation); $g-2$ Summaries; and RPV-RPC reinterpretation
+	\item Goal of providing global summaries of the sensitivities of existing ATLAS searches for new physics
+	\item Write public notes documenting necessary procedures for theorists to reinterpret and reuse published results
+	\item Spearheaded the movement of publishing statistical probability models within the ATLAS Collaboration
+	\item Planned and executed the first large-scale statistical combination of fourteen analyses
 \end{itemize}
 
 \ProjectSummary{Strong and Electroweak production of supersymmetric particles}{2015-present}{ATLAS Experiment}{CERN, Switzerland}{Adelaide, Barcelona, Berkeley LBNL, Berlin HU, Bologna, Bucharest IFIN-HH, CERN, CERN Tier-0, Cambridge, Carleton, \textbf{Chicago}, DESY, Duke, Edinburgh, Geneva, Hong Kong HKU, KEK, Kyoto, La Plata, Liverpool, London UC, Lund, Manchester, Marseille CPPM, Massachusetts, McGill, Michigan, Michigan SU, Montreal, Munich LMU, Nagoya, Nijmegen, Nikhef, Oklahoma SU, Oregon, Oslo, Oxford, Paris LPNHE, Pennsylvania, RAL, SLAC, \textbf{Santa Cruz UC}, Seattle Washington, Sheffield, Stockholm, Stony Brook, Sussex, TRIUMF, TUM, Tokyo ICEPP, Tokyo Tech, UCI, Urbana UI, Valencia, Vancouver UBC, Victoria; ATLAS SUSY Working Group}
 
 \begin{itemize}
-  \item Joined the ATLAS SUSY Working Group in Jan 2015 (Chicago).
-  \item Initially targeted SUSY via strong production (gluinos, squarks) through pioneering analyses that set the strongest limits on the mass of gluinos and stop squarks, multiple times over
-  \item I developed the analysis design for Strong SUSY discovery regions, implemented the uncertainty estimations for theory systematics and for top-modeling systematics, and performed all of the hypothesis tests
-  \item Switched to electroweak production in 2018 (gauge mediated supersymmetry breaking, higgsinos, charginos, neutralinos) through analyses that targeted final states with multiple $b$-jets, and compressed scenarios
-  \item I used my software and statistical expertise to contribute to the analysis design, supervised students working on these analyses, and ensured the ability to perform statistical combinations and reinterpretations needed by the Summaries efforts above
+	\item Joined the ATLAS SUSY Working Group in Jan 2015 (Chicago).
+	\item Initially targeted SUSY via strong production (gluinos, squarks) through pioneering analyses that set the strongest limits on the mass of gluinos and stop squarks, multiple times over
+	\item I developed the analysis design for Strong SUSY discovery regions, implemented the uncertainty estimations for theory systematics and for top-modeling systematics, and performed all of the hypothesis tests
+	\item Switched to electroweak production in 2018 (gauge mediated supersymmetry breaking, higgsinos, charginos, neutralinos) through analyses that targeted final states with multiple $b$-jets, and compressed scenarios
+	\item I used my software and statistical expertise to contribute to the analysis design, supervised students working on these analyses, and ensured the ability to perform statistical combinations and reinterpretations needed by the Summaries efforts above
 \end{itemize}
 
 \PubCite{magenta}{white}{Instrumentation Upgrade}\\
@@ -114,22 +198,22 @@ However, since I typically collaborate with people and not institutions and peop
 \ProjectSummary{Phase-II Inner Tracker Upgrade: Production Database}{2018-2024}{ATLAS Experiment}{CERN, Switzerland}{KEK (JP); IFAE Barcelona, IFIC/CSIC-UV (ES); Genova, Milano (IT); TU Dortmund, MPP, DESY, Wuppertal, Bonn (DE); STFC, Glasgow, Liverpool, Sheffield, Oxford, Manchester (GB); SFU, TRIUMF, Montreal, Victoria, UBC, Carleton (CA); Lund (SE); Copenhagen (DK); Geneve, CERN, Bern (CH); CNRS (FR); Czech Academy of Sciences, Unicorn College (CZ); UPenn, ANL, LBNL, \textbf{UCSC}, Oklahoma, SLAC (US); PUJ (CO); JSI (SI); Johannesburg (ZA); INFN Genova (IT); LPNHE, IJCLab, Saclay CEA, APC, CNRS/IN2P3 (FR); Bergen, Oslo (NO); UWA (GR); ATLAS Upgrade Working Group}\\
 
 \begin{itemize}
-  \item I joined the ATLAS ITk Production Database team in 2019. The Production Database is designed to keep track of components, tests, assemblies, and shipments for all parts used to build the Inner Tracker detector.
-  \item As of April 2024, there are over 9 million test results, 1 million individual components, and 10 thousand shipments.
-  \item I wrote a \texttt{Python} package called \href{https://itkdb.docs.cern.ch/latest/}{\texttt{itkdb}} which handled communication with the database API for other ITk users and developers. Around 4 million requests are made to the API on a monthly basis, and \texttt{itkdb} accounts for 80\% of all traffic.
-  \item I developed a read-only database backup server (full stack), complete with federated authentication and e-group access control logic, for ITk users to prepare weekly reports and keep tabs on production flow metrics and identify data integrity issues with data in the database.
-  \item Using my expertise with software and databases, I worked across various groups within ITk to ramp up their usage of the Production Database and ensure that we continue to be on track for installation and commissioning by 2029 when we enter the HL-LHC era.
+	\item I joined the ATLAS ITk Production Database team in 2019. The Production Database is designed to keep track of components, tests, assemblies, and shipments for all parts used to build the Inner Tracker detector.
+	\item As of April 2024, there are over 9 million test results, 1 million individual components, and 10 thousand shipments.
+	\item I wrote a \texttt{Python} package called \href{https://itkdb.docs.cern.ch/latest/}{\texttt{itkdb}} which handled communication with the database API for other ITk users and developers. Around 4 million requests are made to the API on a monthly basis, and \texttt{itkdb} accounts for 80\% of all traffic.
+	\item I developed a read-only database backup server (full stack), complete with federated authentication and e-group access control logic, for ITk users to prepare weekly reports and keep tabs on production flow metrics and identify data integrity issues with data in the database.
+	\item Using my expertise with software and databases, I worked across various groups within ITk to ramp up their usage of the Production Database and ensure that we continue to be on track for installation and commissioning by 2029 when we enter the HL-LHC era.
 \end{itemize}
 
 \ProjectSummary{Phase-II Inner Tracker Upgrade: Module QC/QA}{2014-present}{ATLAS Experiment}{CERN, Switzerland}{CERN (CH); Tokyo ICEPP, KEK (JP); LPNHE, IJCLab, Saclay CEA (FR); Seigen, Bonn, G\"{o}ttingen, Munich (DE); Bologna, Genova, Milano, Trento (IT); Liverpool, Glasgow, Oxford (GB); LBL, \textbf{UCSC}, Oklahoma, ANL (US); Bergen (NO) ; ATLAS Upgrade Working Group}\\
 
 \begin{itemize}
-  \item I joined UCSC in 2018 and completely built up our institutional infrastructure to perform quality control and electrical testing for one third of all Inner System modules being produced in the U.S.
-  \item I coordinated with other institutions to develop a \enquote{local database} (LocalDB) to manage the large amounts of testing data that we generate for each module as part of the electrical testing procedure; and to make it easier for module testing sites to synchronize their data with the Production Database
-  \item Developed and maintain a software suite of tooling for the QC/QA workflow: \href{https://pypi.org/project/module-qc-tools/}{\texttt{module-qc-tools}} (measurements), \href{https://pypi.org/project/module-qc-analysis-tools/}{\texttt{module-qc-analysis-tools}} (analysis), \href{https://pypi.org/project/module-qc-data-tools/}{\texttt{module-qc-data-tools}} (core data tools), \href{https://pypi.org/project/module-qc-database-tools/}{\texttt{module-qc-database-tools}} (core local database tools), \href{https://pypi.org/project/module-qc-nonelec-gui/}{\texttt{module-qc-nonelec-gui}} (non-electrical testing)
-  \item Wrote the Python-C++ bindings for the hardware control library (\href{https://gitlab.cern.ch/berkeleylab/labRemote/}{\texttt{labRemote}}) used by multiple collaborating institutions
-  \item Developing the Python-C++ bindings for the readout system (\href{https://yarr.web.cern.ch}{\texttt{YARR}})
-  \item In addition to the above maintenance and development, I led training to teach collaborators how to manage software packages and use industry-standard best-practices to assist me with the development and maintenance efforts for the packages listed above
+	\item I joined UCSC in 2018 and completely built up our institutional infrastructure to perform quality control and electrical testing for one third of all Inner System modules being produced in the U.S.
+	\item I coordinated with other institutions to develop a \enquote{local database} (LocalDB) to manage the large amounts of testing data that we generate for each module as part of the electrical testing procedure; and to make it easier for module testing sites to synchronize their data with the Production Database
+	\item Developed and maintain a software suite of tooling for the QC/QA workflow: \href{https://pypi.org/project/module-qc-tools/}{\texttt{module-qc-tools}} (measurements), \href{https://pypi.org/project/module-qc-analysis-tools/}{\texttt{module-qc-analysis-tools}} (analysis), \href{https://pypi.org/project/module-qc-data-tools/}{\texttt{module-qc-data-tools}} (core data tools), \href{https://pypi.org/project/module-qc-database-tools/}{\texttt{module-qc-database-tools}} (core local database tools), \href{https://pypi.org/project/module-qc-nonelec-gui/}{\texttt{module-qc-nonelec-gui}} (non-electrical testing)
+	\item Wrote the Python-C++ bindings for the hardware control library (\href{https://gitlab.cern.ch/berkeleylab/labRemote/}{\texttt{labRemote}}) used by multiple collaborating institutions
+	\item Developing the Python-C++ bindings for the readout system (\href{https://yarr.web.cern.ch}{\texttt{YARR}})
+	\item In addition to the above maintenance and development, I led training to teach collaborators how to manage software packages and use industry-standard best-practices to assist me with the development and maintenance efforts for the packages listed above
 \end{itemize}
 
 \PubCite{darkgray}{white}{Software \& Computing}\\
@@ -137,21 +221,21 @@ However, since I typically collaborate with people and not institutions and peop
 \ProjectSummary{Statistical Software: pyhf}{2018-present}{IRIS-HEP / scikit-hep}{online / GitHub}{University of Wisconsin-Madison, \textbf{UC Santa Cruz}, TUM}
 
 \begin{itemize}
-  \item In 2018, me and two of my closest colleagues (M. Feickert, L. Heinrich) came together and developed \href{https://scikit-hep.org/pyhf/}{\texttt{pyhf}}, a pure-python implementation of the \texttt{HistFactory} statistical model for multi-bin histogram-based analysis.
-  \item This package is one of my proudest successes, with more than \href{https://scikit-hep.org/pyhf/citations.html}{100 citations} in the years that followed from multiple (current and future) experimental collaborations including DUNE, Belle-II, FCC, Muon Collider; as well as from theorists and phenomenologists around the world.
-  \item We recently hosted the first Users and Developers workshop (\Cref{ssec:participation-in-the-organisation-of-scholarly-symposia-and-conferences}) in order to recruit more developers and ensure the longevity of our efforts
+	\item In 2018, me and two of my closest colleagues (M. Feickert, L. Heinrich) came together and developed \href{https://scikit-hep.org/pyhf/}{\texttt{pyhf}}, a pure-python implementation of the \texttt{HistFactory} statistical model for multi-bin histogram-based analysis.
+	\item This package is one of my proudest successes, with more than \href{https://scikit-hep.org/pyhf/citations.html}{100 citations} in the years that followed from multiple (current and future) experimental collaborations including DUNE, Belle-II, FCC, Muon Collider; as well as from theorists and phenomenologists around the world.
+	\item We recently hosted the first Users and Developers workshop (\Cref{ssec:participation-in-the-organisation-of-scholarly-symposia-and-conferences}) in order to recruit more developers and ensure the longevity of our efforts
 \end{itemize}
 
-\ProjectSummary{Analysis Frameworks and Tools: xAODANaHelpers}{2014-2023}{ATLAS Experiment}{CERN, Switzerland}{Brookhaven National Laboratory (BNL), CERN, Cavendish Laboratory, University of Cambridge, Departement de Physique Nucleaire et Corpusculaire, Universite de Geneve, Department of Physics and Astronomy, University College London, Department of Physics and Astronomy, University of Pennsylvania, Department of Physics, University of Toronto, Duke University, Department of Physics, Harvard University, INFN Genova and Universita' di Genova, Dipartimento di Fisica, Jozef Stefan Institute, Laboratoire de Physique Nucleaire et de Hautes Energies (LPNHE), Sorbonne Universite, Universite de Paris, CNRS/IN2P3, Lawrence Berkeley National Laboratory, UC Berkeley, Lunds universitet, Fysiska institutionen, McGill University, Department of Physics, Nevis Laboratory, Columbia University, Royal Institute of Technology (KTH), \textbf{SCIPP, UC Santa Cruz}, SLAC National Accelerator Laboratory, Southern Methodist University, Department of Physics, TRIUMF, Universidad de Buenos Aires, Universite Paris-Saclay, CNRS/IN2P3, IJCLab, 91405, Orsay, University of Arizona, University of British Columbia, UC Irvine, \textbf{University of Chicago}, UMass Amherst, University of Melbourne, University of Oxford, University of Pittsburgh, University of Warwick, Coventry, University of Wisconsin-Madison, Yale University}
+\ProjectSummary{Analysis Frameworks and Tools: xAODAnaHelpers}{2014-2023}{ATLAS Experiment}{CERN, Switzerland}{Brookhaven National Laboratory (BNL), CERN, Cavendish Laboratory, University of Cambridge, Departement de Physique Nucleaire et Corpusculaire, Universite de Geneve, Department of Physics and Astronomy, University College London, Department of Physics and Astronomy, University of Pennsylvania, Department of Physics, University of Toronto, Duke University, Department of Physics, Harvard University, INFN Genova and Universita' di Genova, Dipartimento di Fisica, Jozef Stefan Institute, Laboratoire de Physique Nucleaire et de Hautes Energies (LPNHE), Sorbonne Universite, Universite de Paris, CNRS/IN2P3, Lawrence Berkeley National Laboratory, UC Berkeley, Lunds universitet, Fysiska institutionen, McGill University, Department of Physics, Nevis Laboratory, Columbia University, Royal Institute of Technology (KTH), \textbf{SCIPP, UC Santa Cruz}, SLAC National Accelerator Laboratory, Southern Methodist University, Department of Physics, TRIUMF, Universidad de Buenos Aires, Universite Paris-Saclay, CNRS/IN2P3, IJCLab, 91405, Orsay, University of Arizona, University of British Columbia, UC Irvine, \textbf{University of Chicago}, UMass Amherst, University of Melbourne, University of Oxford, University of Pittsburgh, University of Warwick, Coventry, University of Wisconsin-Madison, Yale University}
 
 \begin{itemize}
-  \item I joined ATLAS Collaboration through University of Chicago in 2014, right at the beginning of Run 2 of the LHC; and we needed an analysis framework -- fast -- so I developed and maintained \href{https://ucatlas.github.io/xAODAnaHelpers/}{\texttt{xAODAnaHelpers}}.
-  \item This was recently highlighted at the \href{https://indico.cern.ch/event/1369601/contributions/5883628/}{WLCG/HSF Workshop} by the current maintainers, and xAH has been chosen as one of the EVERSE (European Virtual Institute for Research Software Excellence) pilot cases representing user analysis software in particle physics, given
-    \begin{enumerate}[label=\alph*]
-      \item its widespread use in a large collaboration
-      \item the fact that its modular and intuitive interface fits the needs of diverse analysis use cases that require custom calibrations and objects beyond traditional physics analyses
-      \item the challenges that end-user analysis software faces when relying on centrally developed tools that are updated often but still need to have full backward compatibility for ongoing analyses.
-    \end{enumerate}
+	\item I joined ATLAS Collaboration through University of Chicago in 2014, right at the beginning of Run 2 of the LHC; and we needed an analysis framework -- fast -- so I developed and maintained \href{https://ucatlas.github.io/xAODAnaHelpers/}{\texttt{xAODAnaHelpers}}.
+	\item This was recently highlighted at the \href{https://indico.cern.ch/event/1369601/contributions/5883628/}{WLCG/HSF Workshop} by the current maintainers, and xAH has been chosen as one of the EVERSE (European Virtual Institute for Research Software Excellence) pilot cases representing user analysis software in particle physics, given
+	      \begin{enumerate}[label=\alph*]
+		      \item its widespread use in a large collaboration
+		      \item the fact that its modular and intuitive interface fits the needs of diverse analysis use cases that require custom calibrations and objects beyond traditional physics analyses
+		      \item the challenges that end-user analysis software faces when relying on centrally developed tools that are updated often but still need to have full backward compatibility for ongoing analyses.
+	      \end{enumerate}
 \end{itemize}
 
 \subsection{Assessment of others’ work \noneyet}\label{ssec:assessment-of-others-work-noneyet}
@@ -256,6 +340,10 @@ In the below categories, \enquote{Experiment} includes publications as part of t
 	\item \Publication[10.1103/PhysRevD.94.032003]{Search for pair production of gluinos decaying via stop and sbottom in events with $b$-jets and large missing transverse momentum in $pp$ collisions at $\sqrt{s} = 13\;\mbox{TeV}$ with the ATLAS detector}{G. Stark et al.}{Phys. Rev. D}{1605.09318}{physics.hep-ex}
 \end{enumerate}
 
+\begin{enumerate}[label=\PubCite{darkgray}{white}{\arabic*},resume]
+	\item \PublicationCode[10.21105/joss.02823]{pyhf: pure-Python implementation of HistFactory statistical models}{G. Stark et al.}{Journal of Open Source Software}{\href{https://github.com/scikit-hep/pyhf}{\faIcon{github}~scikit-hep/pyhf}}
+\end{enumerate}
+
 \subsection{Overview articles and other invited articles in international journals \noneyet}\label{ssec:overview-articles-and-other-invited-articles-in-international-journals-noneyet}
 \subsection{Books, book chapters}\label{ssec:books-book-chapters}
 
@@ -271,30 +359,30 @@ In the below categories, \enquote{Experiment} includes publications as part of t
 \subsection{Popular science articles/presentations}\label{ssec:popular-science-articles-presentations}
 
 \begin{enumerate}[label=\PubCite{red}{white}{\arabic*},resume]
-  \item \Presentation{Spacing out with Particle Physics}{CSD Learns}{https://atomichands.com/events/space-camp-unlimited/}{Apr 2024}
-  \item \Presentation{Analysis Preservation Bootcamp}{IRIS-HEP}{https://web.archive.org/web/20200225185628/https://iris-hep.org/2020/02/17/analysis-preservation.html}{Feb 2020}
+	\item \Presentation{Spacing out with Particle Physics}{CSD Learns}{https://atomichands.com/events/space-camp-unlimited/}{Apr 2024}
+	\item \Presentation{Analysis Preservation Bootcamp}{IRIS-HEP}{https://web.archive.org/web/20200225185628/https://iris-hep.org/2020/02/17/analysis-preservation.html}{Feb 2020}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{green!50!black}{white}{\arabic*},resume]
-  \item \Presentation{PARTY CALL PHYSICS: when access and physics collide}{A Keynote Speaker for the International Conference of Physics Students, 2021}{https://events.iaps.info/event/9/page/5-keynote-speakers}{Aug 2021}
+	\item \Presentation{PARTY CALL PHYSICS: when access and physics collide}{A Keynote Speaker for the International Conference of Physics Students, 2021}{https://events.iaps.info/event/9/page/5-keynote-speakers}{Aug 2021}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{red}{white}{\arabic*},resume]
-  \item \Presentation{ATLAS releases \enquote{full orchestra} of analysis instruments}{Symmetry Magazine}{https://web.archive.org/web/20210115133429/https://www.symmetrymagazine.org/article/atlas-releases-full-orchestra-of-analysis-instruments}{Jan 2021}
-  \item \Presentation{Analysis Preservation Bootcamp}{IRIS-HEP}{https://web.archive.org/web/20200225185628/https://iris-hep.org/2020/02/17/analysis-preservation.html}{Feb 2020}
+	\item \Presentation{ATLAS releases \enquote{full orchestra} of analysis instruments}{Symmetry Magazine}{https://web.archive.org/web/20210115133429/https://www.symmetrymagazine.org/article/atlas-releases-full-orchestra-of-analysis-instruments}{Jan 2021}
+	\item \Presentation{Analysis Preservation Bootcamp}{IRIS-HEP}{https://web.archive.org/web/20200225185628/https://iris-hep.org/2020/02/17/analysis-preservation.html}{Feb 2020}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{green!50!black}{white}{\arabic*},resume]
-  \item \Presentation{My life as a particle physicist}{CERN YouTube Channel, part of the former CERN Microcosm Exhibit}{https://youtu.be/3sESUT1UO6E}{Feb 2020}
+	\item \Presentation{My life as a particle physicist}{CERN YouTube Channel, part of the former CERN Microcosm Exhibit}{https://youtu.be/3sESUT1UO6E}{Feb 2020}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{red}{white}{\arabic*},resume]
-  \item \Presentation{New open release streamlines interactions with theoretical physicists}{ATLAS Experiment}{https://web.archive.org/web/20201221150149/https://atlas.cern/updates/news/new-open-likelihoods}{Dec 2019}
+	\item \Presentation{New open release streamlines interactions with theoretical physicists}{ATLAS Experiment}{https://web.archive.org/web/20201221150149/https://atlas.cern/updates/news/new-open-likelihoods}{Dec 2019}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{green!50!black}{white}{\arabic*},resume]
-  \item \Presentation{PARTY CALL PHYSICS: when access and physics collide}{2019 Meeting of the Division of Particles \& Fields of the American Physical Society}{https://indico.cern.ch/event/782953/contributions/3454898/}{Aug 2019}
+	\item \Presentation{PARTY CALL PHYSICS: when access and physics collide}{2019 Meeting of the Division of Particles \& Fields of the American Physical Society}{https://indico.cern.ch/event/782953/contributions/3454898/}{Aug 2019}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{darkgray}{white}{\arabic*},resume]
-  \item \Presentation{Particle physics laboratory uses GitLab to connect researchers from across the globe}{GitLab.com}{https://web.archive.org/web/20181019022114/https://about.gitlab.com/customers/cern/}{Oct 2018}
+	\item \Presentation{Particle physics laboratory uses GitLab to connect researchers from across the globe}{GitLab.com}{https://web.archive.org/web/20181019022114/https://about.gitlab.com/customers/cern/}{Oct 2018}
 \end{enumerate}
 \begin{enumerate}[label=\PubCite{green!50!black}{white}{\arabic*},resume]
-  \item \Presentation{How do the LHC Experiments work?}{CERN YouTube Channel}{https://youtu.be/BaGjAruqFec}{Feb 2017}
+	\item \Presentation{How do the LHC Experiments work?}{CERN YouTube Channel}{https://youtu.be/BaGjAruqFec}{Feb 2017}
 \end{enumerate}
 
 \subsection{Conference papers}\label{ssec:conference-papers}
@@ -323,7 +411,6 @@ In the below categories, \enquote{Experiment} includes publications as part of t
 \end{enumerate}
 
 \begin{enumerate}[label=\PubCite{darkgray}{white}{\arabic*},resume]
-	\item \PublicationCode[10.21105/joss.02823]{pyhf: pure-Python implementation of HistFactory statistical models}{G. Stark et al.}{Journal of Open Source Software}{\href{https://github.com/scikit-hep/pyhf}{\faIcon{github}~scikit-hep/pyhf}}
 	\item \PublicationCode[10.5281/zenodo.3334365]{diana-hep/pyhf: v0.1.2}{G. Stark et al.}{Zenodo}{\href{https://github.com/scikit-hep/pyhf}{\faIcon{github}~scikit-hep/pyhf}}
 	\item \PublicationCode[10.21105/joss.00307]{root{\_}numpy: The interface between {ROOT} and {NumPy}}{G. Stark et al.}{The Journal of Open Source Software}{\href{https://github.com/scikit-hep/root_numpy}{\faIcon{github}~scikit-hep/root\_numpy}}
 	\item \PublicationCode[10.5281/zenodo.3743307]{xAODAnaHelpers, v1.0.0}{G. Stark et al.}{Zenodo}{\href{https://github.com/UCATLAS/xAODAnaHelpers/}{\faIcon{github}~UCATLAS/xAODAnaHelpers}}
@@ -336,61 +423,61 @@ In the below categories, \enquote{Experiment} includes publications as part of t
 \textbf{Conference Talks on behalf of the ATLAS Collaboration in national and international meetings}
 
 \begin{enumerate}[label=\PubCite{red}{white}{\arabic*},resume]
-  \item \Presentation{Searches for Supersymmetry with the ATLAS Detector}{Parallel session; 30th International Symposium on Lepton Photon Interactions at High Energies}{https://indico.cern.ch/event/949705/contributions/4556056/}{Jan 2022}
-  \item \Presentation{SUSY in ATLAS Experiment}{Plenary talk; XXVIIth International Conference on Supersymmetry and Unification of Fundamental Interactions (SUSY 2019)}{https://cds.cern.ch/record/2675305}{May 2019}
-  \item \Presentation{Searches in High Pile-up Environment}{ATLAS P \& P Week, Topical Physics Plenary: Physics with high pile-up}{https://indico.cern.ch/event/698458/}{Feb 2018}
-  \item \Presentation{Forward jet shapes in high pile-up}{Hadronic Final State Forum 2017}{https://indico.cern.ch/event/666007/}{Dec 2017}
-  \item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{US LHC Users Association Annual Meeting, 2017}{https://indico.fnal.gov/event/15068/}{Nov 2017}
-  \item \Presentation{Release 21 and 2017 data scrutiny — final report}{ATLAS Week (Bratislava)}{https://indico.cern.ch/event/558932}{Oct 2017}
-  \item \Presentation{L1Calo Simulation Effort for Run-2 Upgrades}{Hadronic Calibration Workshop 2017}{https://indico.cern.ch/event/642438}{Sep 2017}
-  \item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{APS Division of Particles and Fields 2017}{https://indico.fnal.gov/event/11999/session/10/contribution/191}{Aug 2017}
-  \item \Presentation{The Calorimeter Global Feature Extractor (gFEX) for the Phase-I Upgrade of the ATLAS experiment}{APS Division of Particles and Fields 2017}{https://indico.fnal.gov/event/11999/session/21/contribution/192}{Aug 2017}
-  \item \Presentation{New techniques in Boosted Object Reconstruction}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2670476/}{Jul 2017}
-  \item \Presentation{The Calorimeter Global Feature Extractor (gFEX) for the Phase-I Upgrade of the ATLAS experiment}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2656535/}{Jul 2017}
-  \item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2656482/}{Jul 2017}
-  \item \Presentation{gFEX jet calibration}{Hadronic Final State Forum 2016}{https://indico.cern.ch/event/565930/}{Dec 2016}
-  \item \Presentation{SUSY using boosted techniques at ATLAS}{BOOST 2016}{https://indico.cern.ch/event/439039}{Aug 2016}
-  \item \Presentation{gFEX Online Object Kinematics and Preliminary Rates}{Hadronic Calibration Workshop 2016}{https://indico.cern.ch/event/506093/}{Sep 2016}
-  \item \Presentation{Jets: An Origin Story about Origin-Correction}{Hadronic Final State Forum 2015}{https://indico.cern.ch/event/437024/}{Dec 2015}
-  \item \Presentation{Multi-b-jet top-tagging optimizations in boosted-0L region}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785727/}{Sep 2015}
-  \item \Presentation{gTowers as a proxy for subjets}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785772/}{Sep 2015}
-  \item \Presentation{Jet Reclustering in a Single Bound}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785890/}{Sep 2015}
-  \item \Presentation{JetSubstructureUtils: Substructure Taggers, Subjet Finding, and Shower Deconstruction}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785785/}{Sep 2015}
-  \item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{US ATLAS Physics Workshop}{https://indico.cern.ch/event/388328}{Jun 2015}
-  \item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{APS April Meeting}{http://meetings.aps.org/Meeting/APR15/Session/C16.6}{Apr 2015}
-  \item \Presentation{The Global Feature Extraction (gFEX) module and its Physics Impact}{US LHC Users Association Annual Meeting 2014}{https://indico.hep.anl.gov/indico/conferenceDisplay.py?confId=410}{Nov 2014}
+	\item \Presentation{Searches for Supersymmetry with the ATLAS Detector}{Parallel session; 30th International Symposium on Lepton Photon Interactions at High Energies}{https://indico.cern.ch/event/949705/contributions/4556056/}{Jan 2022}
+	\item \Presentation{SUSY in ATLAS Experiment}{Plenary talk; XXVIIth International Conference on Supersymmetry and Unification of Fundamental Interactions (SUSY 2019)}{https://cds.cern.ch/record/2675305}{May 2019}
+	\item \Presentation{Searches in High Pile-up Environment}{ATLAS P \& P Week, Topical Physics Plenary: Physics with high pile-up}{https://indico.cern.ch/event/698458/}{Feb 2018}
+	\item \Presentation{Forward jet shapes in high pile-up}{Hadronic Final State Forum 2017}{https://indico.cern.ch/event/666007/}{Dec 2017}
+	\item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{US LHC Users Association Annual Meeting, 2017}{https://indico.fnal.gov/event/15068/}{Nov 2017}
+	\item \Presentation{Release 21 and 2017 data scrutiny — final report}{ATLAS Week (Bratislava)}{https://indico.cern.ch/event/558932}{Oct 2017}
+	\item \Presentation{L1Calo Simulation Effort for Run-2 Upgrades}{Hadronic Calibration Workshop 2017}{https://indico.cern.ch/event/642438}{Sep 2017}
+	\item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{APS Division of Particles and Fields 2017}{https://indico.fnal.gov/event/11999/session/10/contribution/191}{Aug 2017}
+	\item \Presentation{The Calorimeter Global Feature Extractor (gFEX) for the Phase-I Upgrade of the ATLAS experiment}{APS Division of Particles and Fields 2017}{https://indico.fnal.gov/event/11999/session/21/contribution/192}{Aug 2017}
+	\item \Presentation{New techniques in Boosted Object Reconstruction}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2670476/}{Jul 2017}
+	\item \Presentation{The Calorimeter Global Feature Extractor (gFEX) for the Phase-I Upgrade of the ATLAS experiment}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2656535/}{Jul 2017}
+	\item \Presentation{Search for production of supersymmetric particles in final states with missing transverse momentum and multiple b-jets at s=$\sqrt{13}$~TeV proton-proton collisions with the ATLAS experiment}{US ATLAS Workshop 2017}{https://indico.cern.ch/event/631514/contributions/2656482/}{Jul 2017}
+	\item \Presentation{gFEX jet calibration}{Hadronic Final State Forum 2016}{https://indico.cern.ch/event/565930/}{Dec 2016}
+	\item \Presentation{SUSY using boosted techniques at ATLAS}{BOOST 2016}{https://indico.cern.ch/event/439039}{Aug 2016}
+	\item \Presentation{gFEX Online Object Kinematics and Preliminary Rates}{Hadronic Calibration Workshop 2016}{https://indico.cern.ch/event/506093/}{Sep 2016}
+	\item \Presentation{Jets: An Origin Story about Origin-Correction}{Hadronic Final State Forum 2015}{https://indico.cern.ch/event/437024/}{Dec 2015}
+	\item \Presentation{Multi-b-jet top-tagging optimizations in boosted-0L region}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785727/}{Sep 2015}
+	\item \Presentation{gTowers as a proxy for subjets}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785772/}{Sep 2015}
+	\item \Presentation{Jet Reclustering in a Single Bound}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785890/}{Sep 2015}
+	\item \Presentation{JetSubstructureUtils: Substructure Taggers, Subjet Finding, and Shower Deconstruction}{Hadronic Calibration Workshop 2015}{https://indico.cern.ch/event/368856/contributions/1785785/}{Sep 2015}
+	\item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{US ATLAS Physics Workshop}{https://indico.cern.ch/event/388328}{Jun 2015}
+	\item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{APS April Meeting}{http://meetings.aps.org/Meeting/APR15/Session/C16.6}{Apr 2015}
+	\item \Presentation{The Global Feature Extraction (gFEX) module and its Physics Impact}{US LHC Users Association Annual Meeting 2014}{https://indico.hep.anl.gov/indico/conferenceDisplay.py?confId=410}{Nov 2014}
 \end{enumerate}
 
 \textbf{Colloquia, seminars, and invited talks}
 
 \begin{itemize}[label=\strut]
 	\setlength{\itemsep}{0em}
-  \item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{CEA Paris-Saclay}{March 2024}
-  \item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{University of Arizona}{January 2024}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Arizona}{January 2024}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Notre Dame}{January 2024}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Karlsruhe Institute of Technology}{December 2023}
-  \item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{University of Victoria}{November 2023}
-  \item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{Wayne State University}{April 2023}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Southern Methodist University}{March 2023}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Stony Brook University}{February 2023}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Lund University, Sweden}{September 2022}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Washington, Bothell}{July 2022}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Pennsylvania}{February 2022}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Cambridge, UK}{January 2022}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Tennessee, Knoxville}{October 2021}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{ICPS 2021}{August 2021}
-  \item\PubCite{green!75!blue}{white}{Plenary} \InvitedTalk{SUSY2019}{May 2019}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Chicago}{November 2018}
-  \item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Columbia College Chicago}{November 2018}
+	\item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{CEA Paris-Saclay}{March 2024}
+	\item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{University of Arizona}{January 2024}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Arizona}{January 2024}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Notre Dame}{January 2024}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Karlsruhe Institute of Technology}{December 2023}
+	\item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{University of Victoria}{November 2023}
+	\item\PubCite{blue!75!white}{white}{Colloquium} \InvitedTalk{Wayne State University}{April 2023}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Southern Methodist University}{March 2023}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Stony Brook University}{February 2023}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Lund University, Sweden}{September 2022}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Washington, Bothell}{July 2022}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{University of Pennsylvania}{February 2022}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Cambridge, UK}{January 2022}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Tennessee, Knoxville}{October 2021}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{ICPS 2021}{August 2021}
+	\item\PubCite{green!75!blue}{white}{Plenary} \InvitedTalk{SUSY2019}{May 2019}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{The University of Chicago}{November 2018}
+	\item\PubCite{gray!75!white}{white}{Seminar} \InvitedTalk{Columbia College Chicago}{November 2018}
 \end{itemize}
 
 \textbf{Posters}
 
 \begin{enumerate}[label=\PubCite{red}{white}{\arabic*},resume]
-  \item \Presentation{Boosted object hardware trigger development and testing for the upgrades of the ATLAS Experiment}{Poster Session ATLAS Week NYU}{https://indico.cern.ch/event/544717/}{Jul 2016}
-  \item \Presentation{Search for gluinos in Run 2 using final states with boosted top quarks, b-jets and large missing energy with the ATLAS Detector}{Poster Session ATLAS Week NYU}{https://indico.cern.ch/event/544717/}{Jul 2016}
-  \item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{Young Researchers' Symposium at BNL}{https://www.bnl.gov/bnlyrs2015/index.php}{Nov 2015}
+	\item \Presentation{Boosted object hardware trigger development and testing for the upgrades of the ATLAS Experiment}{Poster Session ATLAS Week NYU}{https://indico.cern.ch/event/544717/}{Jul 2016}
+	\item \Presentation{Search for gluinos in Run 2 using final states with boosted top quarks, b-jets and large missing energy with the ATLAS Detector}{Poster Session ATLAS Week NYU}{https://indico.cern.ch/event/544717/}{Jul 2016}
+	\item \Presentation{Boosted object hardware trigger development and testing for the Phase I upgrade of the ATLAS Experiment}{Young Researchers' Symposium at BNL}{https://www.bnl.gov/bnlyrs2015/index.php}{Nov 2015}
 \end{enumerate}
 
 \subsection{Manuscripts (submitted manuscripts are to be listed first, followed by works in progress)}\label{ssec:manuscripts-submitted-manuscripts-are-to-be-listed-first-followed-by-works-in-progress}
@@ -402,11 +489,11 @@ In the below categories, \enquote{Experiment} includes publications as part of t
 	\item \Publication[10.48550/arXiv.2402.08347]{A statistical combination of ATLAS Run 2 searches for charginos and neutralinos at the LHC}{ATLAS Collaboration}{submitted to PRL}{2402.08347}{physics.hep-ex}
 	\item \Publication[10.1007/JHEP05(2024)106]{ATLAS Run 2 searches for electroweak production of supersymmetric particles interpreted within the pMSSM}{ATLAS Collaboration}{submitted to JHEP}{2402.01392}{physics.hep-ex}
 	\item \Publication[10.48550/arXiv.2401.14922]{Search for pair production of higgsinos in events with two Higgs bosons and missing transverse momentum in $\sqrt{s}=13$ TeV $pp$ collisions at the ATLAS experiment}{ATLAS Collaboration}{submitted to PRD}{2401.14922}{physics.hep-ex}
-  \item \PublicationOngoing{Collinear W+jets at 13 TeV}{ATLAS Collaboration}{internal:ANA-STDM-2020-30}{\textit{in preparation, 13 TeV version of \doi{10.1016/j.physletb.2016.12.005}}}
-  \item \PublicationOngoing{SUSY grand pMSSM scan (pMSSM-19)}{ATLAS Collaboration}{internal:ANA-SUSY-2020-14}{\textit{in preparation}}
-  \item \PublicationOngoing{SUSY Compressed Electroweak: Sleptons}{ATLAS Collaboration}{internal:ANA-SUSY-2023-05}{\textit{in preparation}}
-  \item \PublicationOngoing{SUSY Compressed Electroweak: VBF}{ATLAS Collaboration}{internal:ANA-SUSY-2023-26}{\textit{in preparation}}
-  \item \PublicationOngoing{SUSY Compressed Electroweak: Radiative Decays}{ATLAS Collaboration}{internal:ANA-SUSY-2024-12}{\textit{analysis ramping up}}
+	\item \PublicationOngoing{Collinear W+jets at 13 TeV}{ATLAS Collaboration}{internal:ANA-STDM-2020-30}{\textit{in preparation, 13 TeV version of \doi{10.1016/j.physletb.2016.12.005}}}
+	\item \PublicationOngoing{SUSY grand pMSSM scan (pMSSM-19)}{ATLAS Collaboration}{internal:ANA-SUSY-2020-14}{\textit{in preparation}}
+	\item \PublicationOngoing{SUSY Compressed Electroweak: Sleptons}{ATLAS Collaboration}{internal:ANA-SUSY-2023-05}{\textit{in preparation}}
+	\item \PublicationOngoing{SUSY Compressed Electroweak: VBF}{ATLAS Collaboration}{internal:ANA-SUSY-2023-26}{\textit{in preparation}}
+	\item \PublicationOngoing{SUSY Compressed Electroweak: Radiative Decays}{ATLAS Collaboration}{internal:ANA-SUSY-2024-12}{\textit{analysis ramping up}}
 \end{enumerate}
 
 \section{Research Grants} \label{sec:research-grants}
@@ -416,7 +503,7 @@ As a postdoc, I am not eligible to be a principal (or co-applicant) on research 
 \begin{table}[h!]
 	\footnotesize
 	\centering
-  \caption{Research grants for the past five years, excluding the current year (2024). All currency in USD. Total awarded amount listed as well as personal allocation.\label{tab:grants}}
+	\caption{Research grants for the past five years, excluding the current year (2024). All currency in USD. Total awarded amount listed as well as personal allocation.\label{tab:grants}}
 	\begin{tabular}{p{8em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|p{4em}|r}
 		\rowcolor{black!30}
 		\textbf{Name of project and PI (principal investigator)}  & \textbf{2018} & \textbf{2019} & \textbf{2020} & \textbf{2021} & \textbf{2022} & \textbf{2023}   & \textbf{Funder} \\
