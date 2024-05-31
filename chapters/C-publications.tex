@@ -30,7 +30,7 @@ Particle physics convention lists authors alphabetically.
 \PubFacilities{10.48550/arXiv.2404.02100}{Limited Author, 2024 - pre-print}{\textit{Analysis Facilities White Paper}, G. Stark et al., arXiv:\texttt{\href{https://arxiv.org/abs/2404.02100}{2404.02100~[physics.hep-ex]}}.}
 \begin{quotation}
 	While this paper has not been peer-reviewed, I consider it important to me as one of my goals is to improve the accessibility of physics for all.
-	I contributed to all of the discussions to define what a suitable Analysis Facility (AF) should look like to support future generations of physicists in the HL-LHC era, starting in 2029.
+	I contributed to all of the discussions to define what a suitable Analysis Facility should look like to support future generations of physicists in the HL-LHC era, starting in 2029.
 	My focus in this paper was primarily on the user-facing experience, streamlining the collaborative experience of an analysis team on a single set of resources, and ensuring that analysis work was preservable and reproducible.
 \end{quotation}
 
@@ -40,9 +40,10 @@ Particle physics convention lists authors alphabetically.
 	I surmised that it should be possible to run a full analysis \enquote{end-to-end} from generation to statistical analysis all in \faIcon{python}~\texttt{Python}.
 	However, the tooling did not completely exist and I spent a lot of time working on other pieces of this pipeline in order to make this paper a reality.
 	Finally, after about 5 years, all the steps were in place, and my supervisor and I had a good physics case for performing a reinterpretation -- particularly inspired by the $g-2$ results that came out of Fermilab.
-	In addition, there was another ATLAS analysis searching for supersymmetry that we had published a few years prior that I spent time getting the full probability model publicly available for.
+	In addition, there was another ATLAS analysis searching for supersymmetry that we had published a few years prior for which I spent time getting the full probability model publicly available.
 	Guided by our lofty vision, I sat down and fleshed out the entire \texttt{Python} package, \texttt{MaPyDe}, that would provide the functionality to exercise this pipeline.
 	This paper presents the existence of this software package, in addition to two separate novel reinterpretations of existing ATLAS searches to demonstrate the efficacy, all done outside of the ATLAS collaboration.
+	For this to be done outside of the ATLAS collaboration requires the full probability model or the detector acceptances and efficiencies for the analysis to be made public.
 	Now, \texttt{MaPyDe} is used to quickly do reinterpretation, as well as being an approachable pedagogical tool for undergraduate education in particle physics.
 \end{quotation}
 
@@ -91,8 +92,8 @@ Particle physics convention lists authors alphabetically.
 \begin{quotation}
 	Following the momentum of getting ATLAS to be the first particle physics experiment to release a full probability model, I continued to work closely with theorists and phenomenologists to define \enquote{best practices} and ensure maximal reuse of these results from experimental analyses.
 	I contributed to the high-level discussions of that paper, from the perspective of an experimentalist trying to publish data, and coordinated this effort within the ATLAS Collaboration as I was a convener at the time.
-	One thing I would like to point out with this publication is the call-out of \enquote{Infrastructure for open-world models} which is an area lacking effort and development, and part of my research program will be to improve this.
-	In the paper below about \texttt{pyhf}, it should be clear that the infrastructure for \enquote{closed-world models} is relatively crowded, better understood, and less interesting to continue efforts in.
+	One thing I would like to point out with this publication is the call-out for \enquote{Infrastructure for open-world models} which is an area lacking effort and development, and part of my research program will be to improve this.
+	In the paper below about \texttt{pyhf}, it should be clear that the infrastructure for \enquote{closed-world models} is relatively crowded, better understood, and less interesting for continued efforts.
 \end{quotation}
 
 \PubSoftware{10.1051/epjconf/202024506017}{Limited Author, 2020 - journal article}{\textit{Likelihood preservation and statistical reproduction of searches for new physics}, G. Stark et al.}
@@ -103,7 +104,9 @@ Particle physics convention lists authors alphabetically.
 	This paper marked the beginning of a paradigm shift, with well over 100+ citations of \texttt{pyhf} itself and welcomed with open arms by the theory/phenomenology communities, indicating the utility of making physics even more accessible.
 \end{quotation}
 
-\PubExperiment{internal-only}{Limited Author, 2016 - Final Design Report}{\textit{Global Feature Extractor of the Level-1 Calorimeter Trigger : ATLAS TDAQ Phase-I Upgrade gFEX Final Design Report}, G. Stark et al.}
+%\PubExperiment{internal-only}{Limited Author, 2016 - Final Design Report}{\textit{Global Feature Extractor of the Level-1 Calorimeter Trigger : ATLAS TDAQ Phase-I Upgrade gFEX Final Design Report}, G. Stark et al.}
+\stepcounter{publication}\noindent\PubCite{red}{white}{\thepublication}~Limited Author, 2016 - Final Design Report\hfill\faIcon{lock}:\href{https://cds.cern.ch/record/2233958}{\faIcon{external-link-alt}~ATL-COM-DAQ-2016-184} \\
+\textit{Global Feature Extractor of the Level-1 Calorimeter Trigger : ATLAS TDAQ Phase-I Upgrade gFEX Final Design Report}, G. Stark et al.
 \begin{quotation}
 	To round off the above publications, I wanted to highlight one publication from my graduate studies that is not my thesis, nor my thesis analysis; but it is instead the instrumentation upgrade that I worked on.
 	I was an editor for this 500+ page technical document that detailed the full design of a new module for the trigger system of the ATLAS Experiment that has been installed and commissioned since October 2021.
