@@ -5,7 +5,7 @@ ci:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
     - id: check-added-large-files
       exclude: ^attachments
@@ -52,6 +52,6 @@ repos:
     - id: biber-autoformat
 
   - repo: https://github.com/cmhughes/latexindent.pl
-    rev: V3.24.5
+    rev: V3.24.7
     hooks:
       - id: latexindent
